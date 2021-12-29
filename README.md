@@ -1,3 +1,3 @@
-# package-template-ts
+# Notion API Types
 
-A typescript package template
+Typescript typings for the Notion API
