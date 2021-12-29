@@ -3,7 +3,8 @@
     "compilerOptions": {
         /* Emit */
         "declaration": true,
-        "outDir": "./dist",
+        "emitDeclarationOnly": true,
+        "outDir": "./types",
 
         /* Type Checking */
         "strict": true,
