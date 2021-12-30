@@ -1,36 +1,35 @@
-import { ExtractUnion } from './global'
-import { User, PageProperty } from '.'
+import * as Mentions from './mentions'
 
-export type RichTextType = AllRichTexts['type']
-export type RichText<T extends RichTextType = RichTextType> = ExtractUnion<
-    AllRichTexts,
-    T
->
-type AllRichTexts = {
+interface RichTextBase {
     /** The plain text without annotations. */
     plain_text: string
     /** The URL of any link or internal Notion mention in this text, if any. */
     href: string | null
     /** All annotations that apply to this rich text. Annotations include colors and bold/italics/underline/strikethrough. */
     annotations: Annotations
-} & (
-    | {
-          type: 'text'
-          text: {
-              /** Text content. This field contains the actual content of your text and is probably the field you'll use most often. */
-              content: string
-              /** Any inline link in this text. See link objects. */
-              link: { type: 'url'; url: string } | null
-          }
-      }
-    | { type: 'mention'; mention: Mention }
-    | {
-          type: 'equation'
-          equation: {
-              /** The LaTeX string representing this inline equation. */ expression: string
-          }
-      }
-)
+}
+
+export interface Text extends RichTextBase {
+    type: 'text'
+    text: {
+        /** Text content. This field contains the actual content of your text and is probably the field you'll use most often. */
+        content: string
+        /** Any inline link in this text. See link objects. */
+        link: { type: 'url'; url: string } | null
+    }
+}
+export interface Mention extends RichTextBase {
+    type: 'mention'
+    mention: Mentions.Any
+}
+export interface Equation extends RichTextBase {
+    type: 'equation'
+    equation: {
+        /** The LaTeX string representing this inline equation. */ expression: string
+    }
+}
+
+export type Any = Text | Mention | Equation
 
 interface Annotations {
     /** Whether the text is bolded. */
@@ -65,21 +64,3 @@ interface Annotations {
         | 'pink_background'
         | 'red_background'
 }
-
-export type MentionType = AllMentions['type']
-export type Mention<T extends MentionType = MentionType> = ExtractUnion<
-    AllMentions,
-    T
->
-type AllMentions =
-    | { type: 'user'; user: User<'person'> }
-    | { type: 'page'; page: { id: string } }
-    | { type: 'database'; database: { id: string } }
-    | { type: 'date'; date: PageProperty<'date'> }
-    | {
-          type: 'link_preview'
-          link_preview: {
-              /** The originally pasted url used to create the mention */
-              url: string
-          }
-      }

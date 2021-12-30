@@ -1,4 +1,3 @@
-import { ExtractUnion } from './global'
 import { SelectOptions } from './global'
 
 interface PropertyBase {
@@ -12,15 +11,15 @@ interface PropertyBase {
     name: string
 }
 
-interface Title extends PropertyBase {
+export interface Title extends PropertyBase {
     type: 'title'
     title: {}
 }
-interface RichText extends PropertyBase {
+export interface RichText extends PropertyBase {
     type: 'rich_text'
     rich_text: {}
 }
-interface Number extends PropertyBase {
+export interface Number extends PropertyBase {
     type: 'number'
     number: {
         format:
@@ -64,50 +63,50 @@ interface Number extends PropertyBase {
             | 'uruguayan_peso'
     }
 }
-interface Select extends PropertyBase {
+export interface Select extends PropertyBase {
     type: 'select'
     select: { options: SelectOptions }
 }
-interface MultiSelect extends PropertyBase {
+export interface MultiSelect extends PropertyBase {
     type: 'multi_select'
     multi_select: { options: SelectOptions[] }
 }
-interface Date extends PropertyBase {
+export interface Date extends PropertyBase {
     type: 'date'
     date: {}
 }
-interface People extends PropertyBase {
+export interface People extends PropertyBase {
     type: 'people'
     people: {}
 }
-interface Files extends PropertyBase {
+export interface Files extends PropertyBase {
     type: 'files'
     files: {}
 }
-interface Checkbox extends PropertyBase {
+export interface Checkbox extends PropertyBase {
     type: 'checkbox'
     checkbox: {}
 }
-interface Url extends PropertyBase {
+export interface Url extends PropertyBase {
     type: 'url'
     url: {}
 }
-interface Email extends PropertyBase {
+export interface Email extends PropertyBase {
     type: 'email'
     email: {}
 }
-interface PhoneNumber extends PropertyBase {
+export interface PhoneNumber extends PropertyBase {
     type: 'phone_number'
     phone_number: {}
 }
-interface Formula extends PropertyBase {
+export interface Formula extends PropertyBase {
     type: 'formula'
     formula: {
         /** Formula to evaluate for this property. You can read more about the [syntax for formulas](https://notion.so/notion/Formulas-28f3f5c3ae644c59b4d862046ea6a541) in the help center. */
         expression: string
     }
 }
-interface Relation extends PropertyBase {
+export interface Relation extends PropertyBase {
     type: 'relation'
     relation: {
         /** The database this relation refers to. New linked pages must belong to this database in order to be valid. */
@@ -118,7 +117,7 @@ interface Relation extends PropertyBase {
         synced_property_id: string | null
     }
 }
-interface Rollup extends PropertyBase {
+export interface Rollup extends PropertyBase {
     type: 'rollup'
     rollup: {
         /** The name of the relation property this property is responsible for rolling up. */
@@ -147,28 +146,24 @@ interface Rollup extends PropertyBase {
             | 'show_original'
     }
 }
-interface CreatedTime extends PropertyBase {
+export interface CreatedTime extends PropertyBase {
     type: 'created_time'
     created_time: {}
 }
-interface CreatedBy extends PropertyBase {
+export interface CreatedBy extends PropertyBase {
     type: 'created_by'
     created_by: {}
 }
-interface LastEditedTime extends PropertyBase {
+export interface LastEditedTime extends PropertyBase {
     type: 'last_edited_time'
     last_edited_time: {}
 }
-interface LastEditedBy extends PropertyBase {
+export interface LastEditedBy extends PropertyBase {
     type: 'last_edited_by'
     last_edited_by: {}
 }
 
-export type DatabasePropertyType = AllDatabaseProperties['type']
-export type DatabaseProperty<
-    T extends DatabasePropertyType = DatabasePropertyType
-> = ExtractUnion<AllDatabaseProperties, T>
-type AllDatabaseProperties =
+export type Any =
     | Title
     | RichText
     | Number

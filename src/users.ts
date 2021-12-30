@@ -1,5 +1,3 @@
-import { ExtractUnion } from './global'
-
 interface UserBase {
     /** Always "user" */
     readonly object: 'user'
@@ -11,7 +9,7 @@ interface UserBase {
     readonly avatar_url: string | null
 }
 
-interface PersonUser extends UserBase {
+export interface Person extends UserBase {
     readonly type: 'person'
     /** Properties only present for non-bot users. */
     readonly person: {
@@ -20,19 +18,15 @@ interface PersonUser extends UserBase {
     }
 }
 
-interface BotUser extends UserBase {
+export interface Bot extends UserBase {
     readonly type: 'bot'
     /** Properties only present for bot users. */
     readonly bot: {
         /** Information about who owns this bot. */
         readonly owner:
             | { readonly type: 'workspace'; readonly workspace: true }
-            | { readonly type: 'user'; readonly user: PersonUser }
+            | { readonly type: 'user'; readonly user: Person }
     }
 }
 
-export type UserType = (PersonUser | BotUser)['type']
-export type User<T extends UserType = UserType> = ExtractUnion<
-    PersonUser | BotUser,
-    T
->
+export type Any = Person | Bot
