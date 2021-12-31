@@ -13,7 +13,7 @@ export interface PageId {
 }
 export interface Workspace {
     type: 'workspace'
-    workspace: string 
+    workspace: true 
 }
 
 export type Any = DatabaseId | PageId | Workspace
