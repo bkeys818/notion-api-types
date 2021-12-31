@@ -6,9 +6,9 @@
     "author": "Ben Keys (https://github.com/bkeys818)",
     "license": "MIT",
     "scripts": {
-        "test": "exit 0",
         "prepare": "husky install",
-        "build": "tsc"
+        "build": "tsc",
+        "test": "yarn build && tsc -p tests.tsconfig.json"
     },
     "types": "types",
     "devDependencies": {
