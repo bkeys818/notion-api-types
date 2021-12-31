@@ -30,7 +30,24 @@ export interface MultiSelect extends PropertyBase {
 }
 export interface Date extends PropertyBase {
     type: 'date'
-    date: NotionDate | null
+    date: {
+        /** An ISO 8601 format date, with optional time. */
+        start: string
+        /**
+         * An ISO 8601 formatted date, with optional time. Represents the end of a date range.
+         *
+         * If `null`, this property's date value is not a range.
+         */
+        end: string | null
+        /**
+         * Time zone information for `start` and `end`. Possible values are extracted from the [IANA database](https://www.iana.org/time-zones) and they are based on the time zones from [Moment.js](https://momentjs.com/timezone/).
+         *
+         * When time zone is provided, `start` and `end` should not have any [UTC offsets](https://en.wikipedia.org/wiki/UTC_offset). In addition, when time zone  is provided, `start` and `end` cannot be dates without time information.
+         *
+         * If `null`, time zone information will be contained in [UTC offsets](https://en.wikipedia.org/wiki/UTC_offset) in `start` and `end`.
+         */
+        time_zone: string | null
+    } | null
 }
 export interface Formula extends PropertyBase {
     type: 'formula'
@@ -74,7 +91,7 @@ export interface PhoneNumber extends PropertyBase {
 }
 export interface CreatedTime extends PropertyBase {
     type: 'created_time'
-    created_time: NotionDate
+    created_time: string
 }
 export interface CreatedBy extends PropertyBase {
     type: 'created_by'
@@ -82,7 +99,7 @@ export interface CreatedBy extends PropertyBase {
 }
 export interface LastEditedTime extends PropertyBase {
     type: 'last_edited_time'
-    last_edited_time: NotionDate
+    last_edited_time: string
 }
 export interface LastEditedBy extends PropertyBase {
     type: 'last_edited_by'
@@ -109,22 +126,3 @@ export type Any =
     | CreatedBy
     | LastEditedTime
     | LastEditedBy
-
-interface NotionDate {
-    /** An ISO 8601 format date, with optional time. */
-    start: string
-    /**
-     * An ISO 8601 formatted date, with optional time. Represents the end of a date range.
-     *
-     * If `null`, this property's date value is not a range.
-     */
-    end: string | null
-    /**
-     * Time zone information for `start` and `end`. Possible values are extracted from the [IANA database](https://www.iana.org/time-zones) and they are based on the time zones from [Moment.js](https://momentjs.com/timezone/).
-     *
-     * When time zone is provided, `start` and `end` should not have any [UTC offsets](https://en.wikipedia.org/wiki/UTC_offset). In addition, when time zone  is provided, `start` and `end` cannot be dates without time information.
-     *
-     * If `null`, time zone information will be contained in [UTC offsets](https://en.wikipedia.org/wiki/UTC_offset) in `start` and `end`.
-     */
-    time_zone: string | null
-}
