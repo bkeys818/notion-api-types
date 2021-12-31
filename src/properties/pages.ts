@@ -1,7 +1,7 @@
 import * as Formulas from './formulas'
 import * as Rollups from './rollups'
 import { SelectOptions } from './global'
-import { RichTexts, Users, File } from '..'
+import { RichTexts, Users, Files } from '..'
 
 interface PropertyBase {
     /**
@@ -52,9 +52,9 @@ export interface People extends PropertyBase {
     type: 'people'
     people: Users.Any[]
 }
-export interface Files extends PropertyBase {
+export interface File extends PropertyBase {
     type: 'files'
-    files: (File & { name: string })[]
+    files: (Files.Any & { name: string })[]
 }
 export interface Checkbox extends PropertyBase {
     type: 'checkbox'
@@ -100,7 +100,7 @@ export type Any =
     | Rollup
     | Title
     | People
-    | Files
+    | File
     | Checkbox
     | Url
     | Email
