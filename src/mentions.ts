@@ -14,7 +14,7 @@ export interface Database {
 }
 export interface Date {
     type: 'date'
-    date: Properties.Pages.Date
+    date: Properties.Pages.Date['date']
 }
 
 export type Any = User | Page | Database | Date
