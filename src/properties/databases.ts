@@ -66,7 +66,7 @@ export interface Number extends PropertyBase {
 }
 export interface Select extends PropertyBase {
     type: 'select'
-    select: { options: SelectOptions }
+    select: { options: SelectOptions[] }
 }
 export interface MultiSelect extends PropertyBase {
     type: 'multi_select'
