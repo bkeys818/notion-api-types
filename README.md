@@ -25,7 +25,7 @@ const title = page.properties.Title as Properties.Pages.Title
 ```
 
 [version-image]: https://img.shields.io/github/package-json/v/bkeys818/notion-api-types
-[version-link]: https://github.com/bkeys818/notion-api-types/releases/tag/v0.1.0
+[version-link]: https://github.com/bkeys818/notion-api-types/releases/tag/v0.2.0
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg
 [npm-link]: https://npmjs.org/package/notion-api-types/
 [test-status]: https://github.com/bkeys818/notion-api-types/actions/workflows/push-to-main.yaml/badge.svg?branch=main&event=push
