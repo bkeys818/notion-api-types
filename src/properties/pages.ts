@@ -87,7 +87,7 @@ export interface Email extends PropertyBase {
 }
 export interface PhoneNumber extends PropertyBase {
     type: 'phone_number'
-    phone_number: number | null
+    phone_number: string | null
 }
 export interface CreatedTime extends PropertyBase {
     type: 'created_time'
