@@ -1,8 +1,3 @@
-export type ExtractUnion<
-    T extends { type: string },
-    K extends T['type']
-> = K extends K ? Extract<T, Record<K, any>> : never
-
 export interface SelectOptions {
     /**
      * Name of the option as it appears in Notion.
@@ -28,4 +23,4 @@ export interface SelectOptions {
         | 'red'
 }
 
-export type Emoji = { emoji: string }
+export type Emoji = { type: 'emoji', emoji: string }

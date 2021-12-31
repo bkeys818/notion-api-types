@@ -7,20 +7,26 @@ export * as Blocks from './blocks'
 export * as Users from './users'
 export { Properties, RichTexts, Parents, Files }
 
-export interface Database {
-    object: 'database'
-    /** Unique identifier for the database. */
+interface NotionItem {
     id: string
-    /** Date and time when this database was created. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO_8601) string. */
+    /** Date and time when this page was created. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO_8601) string. */
     created_time: string
-    /** Date and time when this database was updated. Formatted as an ISO 8601 date time string. */
+    /** Date and time when this page was updated. Formatted as an ISO 8601 date time string. */
     last_edited_time: string
-    /** Name of the database as it appears in Notion. See {@link RichText rich text object} for a breakdown of the properties. */
-    title: RichTexts.Any[]
     /** Page icon. */
-    icon: File | Emoji
+    icon: Files.Any | Emoji | null
     /** Page cover image. */
-    cover: Files.External
+    cover: Files.External | null
+    /** The parent of this page. */
+    parent: Parents.Any
+    /** The URL of the Notion page. */
+    url: string
+}
+
+export interface Database extends NotionItem {
+    object: 'database'
+    /** Name of the page as it appears in Notion. See {@link RichTexts.Text rich text object} for a breakdown of the properties. */
+    title: RichTexts.Text[]
     /**
      * Schema of properties for the database as they appear in Notion.
      *
@@ -31,23 +37,11 @@ export interface Database {
     properties: { [key: string]: Properties.Databases.Any }
     /** The parent of this page. */
     parent: Parents.PageId | Parents.Workspace
-    /** The URL of the Notion database. */
-    url: string
 }
-export interface Page {
+export interface Page extends NotionItem {
     object: 'page'
-    /** Unique identifier of the page. */
-    id: string
-    /** Date and time when this page was created. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO_8601) string. */
-    created_time: string
-    /** Date and time when this page was updated. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO_8601) string. */
-    last_edited_time: string
     /** The archived status of the page. */
     archived: boolean
-    /** Page icon. */
-    icon: File | Emoji
-    /** Page cover image. */
-    cover: Files.External
     /**
      * Property values of this page.
      *
@@ -59,9 +53,5 @@ export interface Page {
      *
      * value object A {@link Properties.Pages.Any Property value object}.
      */
-    properties: Properties.Pages.Any
-    /** The parent of this page. */
-    parent: Parents.Any
-    /** The URL of the Notion page. */
-    url: string
+    properties: { [key: string]: Properties.Pages.Any }
 }

@@ -11,93 +11,81 @@ interface BlockBase {
     last_edited_time: string
     /** The archived status of the block. */
     archived: boolean
-}
-interface ParentBlock extends BlockBase {
     /** Whether or not the block has children blocks nested within it. */
     has_children: boolean
 }
 
 interface Text {
-    /** Any nested children blocks of the block. */
+    /** Rich text in the block. */
     text: RichTexts.Any[]
 }
-interface TextWithChildren extends Text {
-    /** Any nested children blocks of the block. */
-    children: Any[]
+
+interface Caption {
+    /** Caption of the block */
+    caption: RichTexts.Any[]
 }
 
-export interface Paragraph extends ParentBlock {
+export interface Paragraph extends BlockBase {
     type: 'paragraph'
-    paragraph: TextWithChildren
+    paragraph: Text
 }
-export interface BulletedListItem extends ParentBlock {
+export interface BulletedListItem extends BlockBase {
     type: 'bulleted_list_item'
-    bulleted_list_item: TextWithChildren
+    bulleted_list_item: Text
 }
-export interface NumberedListItem extends ParentBlock {
+export interface NumberedListItem extends BlockBase {
     type: 'numbered_list_item'
-    numbered_list_item: TextWithChildren
+    numbered_list_item: Text
 }
-export interface Toggle extends ParentBlock {
+export interface Toggle extends BlockBase {
     type: 'toggle'
-    toggle: TextWithChildren
+    toggle: Text
 }
-export interface ToDo extends ParentBlock {
+export interface ToDo extends BlockBase {
     type: 'to_do'
-    to_do: TextWithChildren & {
+    to_do: Text & {
         /** Whether the to_do is checked or not. */
         checked: boolean | null
     }
 }
-export interface Quote extends ParentBlock {
+export interface Quote extends BlockBase {
     type: 'quote'
-    quote: TextWithChildren
+    quote: Text
 }
-export interface Callout extends ParentBlock {
+export interface Callout extends BlockBase {
     type: 'callout'
-    callout: TextWithChildren & {
+    callout: Text & {
         /** Page icon. */
         icon: Emoji | Files.Any
     }
 }
-export interface SyncedBlock extends ParentBlock {
+export interface SyncedBlock extends BlockBase {
     type: 'synced_block'
-    synced_block:
-        | {
-              /** Value is always `null` to signify that this is an original synced block and that is not referring to another block */
-              synced_from: null
-              /** Any nested children blocks of the `synced_block` block. These blocks will be synced across this block and references to this `synced_block` */
-              children: Any[]
-          }
-        | {
-              /** Object that contains the id of the original synced_block */
-              synced_from: {
-                  /** Type of this synced from object.  */
-                  type: 'block_id'
-                  /** Identifier of an original synced_block */
-                  block_id: string
-              }
-          }
-}
-export interface Template extends ParentBlock {
-    type: 'template'
-    template: TextWithChildren
-}
-export interface Column extends ParentBlock {
-    type: 'column'
-    column: {
-        /** List of blocks in a single column. */
-        children: Any[]
+    synced_block: {
+        synced_from: null | {
+            /** Type of this synced from object.  */
+            type: 'block_id'
+            /** Identifier of an original synced_block */
+            block_id: string
+        }
     }
 }
-export interface ChildPage extends ParentBlock {
+export interface Template extends BlockBase {
+    type: 'template'
+    template: Text
+}
+export interface Column extends BlockBase {
+    type: 'column'
+    column: {}
+}
+export interface ChildPage extends BlockBase {
     type: 'child_page'
     child_page: {
         /** Plain text of page title. */
         title: string
     }
 }
-export interface ChildDatabase extends ParentBlock {
+export interface ChildDatabase extends BlockBase {
     type: 'child_database'
     child_database: {
         /** Plain text of the database title */
@@ -119,7 +107,7 @@ export interface Heading3 extends BlockBase {
 }
 export interface Embed extends BlockBase {
     type: 'embed'
-    embed: {
+    embed: Caption & {
         /** Link to website the embed block will display. */
         url: string
     }
@@ -127,32 +115,28 @@ export interface Embed extends BlockBase {
 export interface Image extends BlockBase {
     type: 'image'
     /** Image file reference */
-    image: Files.Any
+    image: Caption & Files.Any
 }
 export interface Video extends BlockBase {
     type: 'video'
     /** Video file reference */
-    video: Files.Any
+    video: Caption & Files.Any
 }
-export interface FileBlock extends BlockBase {
+export interface File extends BlockBase {
     type: 'file'
     /** File reference */
-    file: Files.Any
-    /** Caption of the file block */
-    caption: RichTexts.Any[]
+    file: Caption & Files.Any
 }
 export interface Pdf extends BlockBase {
     type: 'pdf'
     /** PDF file reference */
-    pdf: Files.Any
+    pdf: Caption & Files.Any
 }
 export interface Bookmark extends BlockBase {
     type: 'bookmark'
-    bookmark: {
+    bookmark: Caption & {
         /** Bookmark link */
         url: string
-        /** Caption of the bookmark block */
-        caption: RichTexts.Any[]
     }
 }
 export interface Equation extends BlockBase {
@@ -176,10 +160,7 @@ export interface Breadcrumb extends BlockBase {
 }
 export interface ColumnList extends BlockBase {
     type: 'column_list'
-    column_list: {
-        /** List of columns in the column_list block. */
-        children: Column[]
-    }
+    column_list: {}
 }
 export interface LinkPreview extends BlockBase {
     type: 'link_preview'
@@ -215,7 +196,7 @@ export type Any =
     | Embed
     | Image
     | Video
-    | FileBlock
+    | File
     | Pdf
     | Bookmark
     | Equation

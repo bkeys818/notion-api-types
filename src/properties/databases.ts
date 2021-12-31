@@ -1,4 +1,5 @@
 import { SelectOptions } from './global'
+import * as Rollups from './rollups'
 
 interface PropertyBase {
     /**
@@ -65,7 +66,7 @@ export interface Number extends PropertyBase {
 }
 export interface Select extends PropertyBase {
     type: 'select'
-    select: { options: SelectOptions }
+    select: { options: SelectOptions[] }
 }
 export interface MultiSelect extends PropertyBase {
     type: 'multi_select'
@@ -129,21 +130,7 @@ export interface Rollup extends PropertyBase {
         /** The `id` of the property of the pages in the related database that is used as an input to `function`. */
         rollup_property_id: string
         /** The function that is evaluated for every page in the relation of the rollup. */
-        function:
-            | 'count_all'
-            | 'count_values'
-            | 'count_unique_values'
-            | 'count_empty'
-            | 'count_not_empty'
-            | 'percent_empty'
-            | 'percent_not_empty'
-            | 'sum'
-            | 'average'
-            | 'median'
-            | 'min'
-            | 'max'
-            | 'range'
-            | 'show_original'
+        function: Rollups.Any['function']
     }
 }
 export interface CreatedTime extends PropertyBase {
