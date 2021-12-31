@@ -63,7 +63,7 @@ export interface Rollup extends PropertyBase {
 }
 export interface Title extends PropertyBase {
     type: 'title'
-    title: RichTexts.Text
+    title: [RichTexts.Text]
 }
 export interface People extends PropertyBase {
     type: 'people'
