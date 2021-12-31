@@ -39,7 +39,7 @@ export interface Date {
 }
 export interface Array {
     type: 'array'
-    array: Omit<Exclude<Pages.Any, Pages.Rollup>, 'id'>[]
+    array: WithoutId<Exclude<Pages.Any, Pages.Rollup>>[]
     function:
         | 'show_original'
         | 'show_unique_values'
@@ -51,5 +51,7 @@ export interface Array {
         | 'percent_empty'
         | 'percent_not_empty'
 }
+
+type WithoutId<T extends { id: string }> = T extends T ? Omit<T, 'id'> : never
 
 export type Any = Number | Date | Array
