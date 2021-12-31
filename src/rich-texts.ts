@@ -42,7 +42,7 @@ interface Annotations {
     underline: boolean
     /** Whether the text is code style. */
     code: boolean
-    /** Color of the text. Possible values are: "default", "gray", "brown", "orange", "yellow", "green", "blue", "purple", "pink", "red", "gray_background", "brown_background", "orange_background", "yellow_background", "green_background", "blue_background", "purple_background", "pink_background", "red_background". */
+    /** Color of the text. */
     color:
         | 'default'
         | 'gray'
