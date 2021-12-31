@@ -23,7 +23,7 @@ export interface Bot extends UserBase {
     /** Properties only present for bot users. */
     readonly bot: {
         /** Information about who owns this bot. */
-        readonly owner:
+        readonly owner?:
             | { readonly type: 'workspace'; readonly workspace: true }
             | { readonly type: 'user'; readonly user: Person }
     }
