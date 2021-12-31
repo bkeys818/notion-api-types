@@ -4,15 +4,15 @@ export interface String {
 }
 export interface Number {
     type: 'number'
-    string: number | null
+    number: number | null
 }
 export interface Boolean {
     type: 'boolean'
-    string: boolean
+    boolean: boolean
 }
 export interface Date {
     type: 'date'
-    string: Date | null
+    date: Date | null
 }
 
 export type Any = String | Number | Boolean | Date
