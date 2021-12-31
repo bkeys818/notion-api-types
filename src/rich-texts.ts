@@ -15,7 +15,7 @@ export interface Text extends RichTextBase {
         /** Text content. This field contains the actual content of your text and is probably the field you'll use most often. */
         content: string
         /** Any inline link in this text. See link objects. */
-        link: { type: 'url'; url: string } | null
+        link: { type?: 'url'; url: string } | null
     }
 }
 export interface Mention extends RichTextBase {
