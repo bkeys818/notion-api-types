@@ -17,6 +17,7 @@ export type Formula<T extends FormulaType = FormulaType> = NotionObj<
     T
 >
 
+type OmitId<T extends { id: string }> = T extends T ? Omit<T, 'id'> : never
 interface RollupMap {
     number: {
         number: number
@@ -54,7 +55,7 @@ interface RollupMap {
             | 'date_range'
     }
     array: {
-        array: Omit<Pages.Property<Exclude<PropertyType, 'rollup'>>, 'id'>[]
+        array: OmitId<Pages.Property<Exclude<PropertyType, 'rollup'>>>[]
         function:
             | 'show_original'
             | 'show_unique_values'
