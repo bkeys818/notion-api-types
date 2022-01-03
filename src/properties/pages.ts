@@ -1,36 +1,14 @@
-import * as Formulas from './formulas'
-import * as Rollups from './rollups'
+import { Formula, Rollup } from '.'
+import { NotionObj } from '../global'
 import { SelectOptions } from './global'
-import { RichTexts, Users, Files } from '..'
+import { RichText, User, File } from '..'
 
-interface PropertyBase {
-    /**
-     * Underlying identifier for the property. This identifier is guaranteed to remain constant when the property name changes. It may be a UUID, but is often a short random string.
-     *
-     * The id may be used in place of name when creating or updating pages.
-     */
-    id: string
-}
-
-export interface RichText extends PropertyBase {
-    type: 'rich_text'
-    rich_text: RichTexts.Any[]
-}
-export interface Number extends PropertyBase {
-    type: 'number'
-    number: number | null
-}
-export interface Select extends PropertyBase {
-    type: 'select'
-    select: SelectOptions | null
-}
-export interface MultiSelect extends PropertyBase {
-    type: 'multi_select'
-    multi_select: SelectOptions[]
-}
-export interface Date extends PropertyBase {
-    type: 'date'
-    date: {
+interface Properties {
+    rich_text: { rich_text: RichText[] }
+    number: { number: number | null }
+    select: { select: SelectOptions | null }
+    multi_select: { multi_select: SelectOptions[] }
+    date: { date: {
         /** An ISO 8601 format date, with optional time. */
         start: string
         /**
@@ -47,82 +25,33 @@ export interface Date extends PropertyBase {
          * If `null`, time zone information will be contained in [UTC offsets](https://en.wikipedia.org/wiki/UTC_offset) in `start` and `end`.
          */
         time_zone: string | null
-    } | null
-}
-export interface Formula extends PropertyBase {
-    type: 'formula'
-    formula: Formulas.Any
-}
-export interface Relation extends PropertyBase {
-    type: 'relation'
-    relation: { id: string }[]
-}
-export interface Rollup extends PropertyBase {
-    type: 'rollup'
-    rollup: Rollups.Any
-}
-export interface Title extends PropertyBase {
-    type: 'title'
-    title: [RichTexts.Text]
-}
-export interface People extends PropertyBase {
-    type: 'people'
-    people: Users.Any[]
-}
-export interface File extends PropertyBase {
-    type: 'files'
-    files: (Files.Any & { name: string })[]
-}
-export interface Checkbox extends PropertyBase {
-    type: 'checkbox'
-    checkbox: boolean
-}
-export interface Url extends PropertyBase {
-    type: 'url'
-    url: string
-}
-export interface Email extends PropertyBase {
-    type: 'email'
-    email: string | null
-}
-export interface PhoneNumber extends PropertyBase {
-    type: 'phone_number'
-    phone_number: string | null
-}
-export interface CreatedTime extends PropertyBase {
-    type: 'created_time'
-    created_time: string
-}
-export interface CreatedBy extends PropertyBase {
-    type: 'created_by'
-    created_by: Users.Any
-}
-export interface LastEditedTime extends PropertyBase {
-    type: 'last_edited_time'
-    last_edited_time: string
-}
-export interface LastEditedBy extends PropertyBase {
-    type: 'last_edited_by'
-    last_edited_by: Users.Any
+    } | null }
+    formula: { formula: Formula }
+    relation: { relation: { id: string }[] }
+    rollup: { rollup: Rollup }
+    title: { title: [RichText<'text'>] }
+    people: { people: User[] }
+    files: { files: (File & { name: string })[] }
+    checkbox: { checkbox: boolean }
+    url: { url: string }
+    email: { email: string | null }
+    phone_number: { phone_number: string | null }
+    created_time: { created_time: string }
+    created_by: { created_by: User }
+    last_edited_time: { last_edited_time: string }
+    last_edited_by: { last_edited_by: User }
 }
 
-export type Any =
-    | RichText
-    | Number
-    | Select
-    | MultiSelect
-    | Date
-    | Formula
-    | Relation
-    | Rollup
-    | Title
-    | People
-    | File
-    | Checkbox
-    | Url
-    | Email
-    | PhoneNumber
-    | CreatedTime
-    | CreatedBy
-    | LastEditedTime
-    | LastEditedBy
+export type PropertyType = keyof Properties
+export type Property<T extends PropertyType = PropertyType> = NotionObj<
+    Properties,
+    T,
+    {
+            /**
+     * Underlying identifier for the property. This identifier is guaranteed to remain constant when the property name changes. It may be a UUID, but is often a short random string.
+     *
+     * The id may be used in place of name when creating or updating pages.
+     */
+    id: string
+    }
+>
