@@ -1,7 +1,7 @@
-import type { RichTexts } from '..'
+import type { RichText } from '..'
 import { person } from './users.test'
 
-const colors: RichTexts.Any['annotations']['color'][] = [
+const colors: RichText['annotations']['color'][] = [
     'default',
     'gray',
     'brown',
@@ -23,7 +23,7 @@ const colors: RichTexts.Any['annotations']['color'][] = [
     'red_background',
 ]
 
-const annotations: RichTexts.Any['annotations'][] = [
+const annotations: RichText['annotations'][] = [
     {
         bold: false,
         italic: false,
@@ -42,14 +42,14 @@ const annotations: RichTexts.Any['annotations'][] = [
     },
 ]
 
-const textBasic: RichTexts.Text = {
+const textBasic: RichText<'text'> = {
     type: 'text',
     text: { content: 'hello world!', link: null },
     annotations: annotations[0],
     plain_text: 'default',
     href: null,
 }
-const textLink: RichTexts.Text = {
+const textLink: RichText<'text'> = {
     type: 'text',
     text: { content: 'hello world!', link: { url: 'http://localhost:8080' } },
     annotations: annotations[0],
@@ -57,7 +57,7 @@ const textLink: RichTexts.Text = {
     href: 'http://localhost:8080',
 }
 
-const equation: RichTexts.Equation = {
+const equation: RichText<'equation'> = {
     type: 'equation',
     equation: { expression: 'E = mc^2' },
     annotations: annotations[0],
@@ -65,14 +65,14 @@ const equation: RichTexts.Equation = {
     href: null,
 }
 
-const mentionUser: RichTexts.Mention = {
+const mentionUser: RichText<'mention'> = {
     type: 'mention',
     mention: { type: 'user', user: person },
     annotations: annotations[0],
     plain_text: '@Ben Keys',
     href: null,
 }
-const mentionPage: RichTexts.Mention = {
+const mentionPage: RichText<'mention'> = {
     type: 'mention',
     mention: {
         type: 'page',
@@ -84,7 +84,7 @@ const mentionPage: RichTexts.Mention = {
     plain_text: 'basic title',
     href: 'https://www.notion.so/003bd3fd67e04c56bca448bc7575f49e',
 }
-const mentionDatabase: RichTexts.Mention = {
+const mentionDatabase: RichText<'mention'> = {
     type: 'mention',
     mention: {
         type: 'database',
@@ -96,7 +96,7 @@ const mentionDatabase: RichTexts.Mention = {
     plain_text: 'Database For Testing',
     href: 'https://www.notion.so/1d05903f7b76465ab4f0feb577927e8f',
 }
-const mentionDate: RichTexts.Mention = {
+const mentionDate: RichText<'mention'> = {
     type: 'mention',
     mention: {
         type: 'date',
@@ -111,7 +111,7 @@ const mentionDate: RichTexts.Mention = {
     href: null,
 }
 
-const richText: RichTexts.Any = [
+const richText: RichText = [
     textBasic,
     textLink,
     equation,
