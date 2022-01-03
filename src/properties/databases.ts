@@ -2,7 +2,7 @@ import { NotionObj } from '../global'
 import { PropertyType, Rollup } from '.'
 import { SelectOptions } from './global'
 
-interface PropertyMap {
+interface Properties {
     title: {}
     rich_text: {}
     number: {
@@ -86,7 +86,7 @@ interface PropertyMap {
 }
 
 export type Property<T extends PropertyType = PropertyType> = NotionObj<
-    PropertyMap,
+    Properties,
     T,
     {
         /**

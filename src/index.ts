@@ -50,17 +50,17 @@ export interface Page extends NotionItem {
     properties: { [key: string]: Pages.Property }
 }
 
-interface ParentMap {
+interface Parents {
     /** The ID of the {@link Database database} that this page belongs to. */
     database_id: string
     /** The ID of the {@link Page page} that this page belongs to. */
     page_id: string
     workspace: true
 }
-export type ParentType = keyof ParentMap
-export type Parent<T extends ParentType = ParentType> = NotionObj<ParentMap, T>
+export type ParentType = keyof Parents
+export type Parent<T extends ParentType = ParentType> = NotionObj<Parents, T>
 
-interface UserMap {
+interface Users {
     /** Properties only present for non-bot users. */
     readonly person: {
         /** Email address of person. This is only present if an integration has user capabilities that allow access to email addresses. */
@@ -74,9 +74,9 @@ interface UserMap {
             | { readonly type: 'user'; readonly user: User<'person'> }
     }
 }
-export type UserType = keyof UserMap
+export type UserType = keyof Users
 export type User<T extends UserType = UserType> = NotionObj<
-    UserMap,
+    Users,
     T,
     {
         readonly object: 'user'
@@ -97,7 +97,7 @@ interface Caption {
     /** Caption of the block */
     caption: RichText[]
 }
-interface BlockMap {
+interface Blocks {
     paragraph: Text
     bulleted_list_item: Text
     numbered_list_item: Text
@@ -155,9 +155,9 @@ interface BlockMap {
         | { type: 'database_id'; database_id: string }
     unsupported: {}
 }
-export type BlockType = keyof BlockMap
+export type BlockType = keyof Blocks
 export type Block<T extends BlockType = BlockType> = NotionObj<
-    BlockMap,
+    Blocks,
     T,
     {
         object: 'block'
@@ -174,7 +174,7 @@ export type Block<T extends BlockType = BlockType> = NotionObj<
     }
 >
 
-interface RichTextMap {
+interface RichTexts {
     text: {
         /** Text content. This field contains the actual content of your text and is probably the field you'll use most often. */
         content: string
@@ -219,9 +219,9 @@ interface Annotations {
         | 'pink_background'
         | 'red_background'
 }
-export type RichTextType = keyof RichTextMap
+export type RichTextType = keyof RichTexts
 export type RichText<T extends RichTextType = RichTextType> = NotionObj<
-    RichTextMap,
+    RichTexts,
     T,
     {
         /** The plain text without annotations. */
@@ -233,19 +233,19 @@ export type RichText<T extends RichTextType = RichTextType> = NotionObj<
     }
 >
 
-interface MentionMap {
+interface Mentions {
     user: User<'person'>
     page: { id: string }
     database: { id: string }
     date: Pages.Property<'date'>['date']
 }
-export type MentionType = keyof MentionMap
+export type MentionType = keyof Mentions
 export type Mention<T extends MentionType = MentionType> = NotionObj<
-    MentionMap,
+    Mentions,
     T
 >
 
-interface FileMap {
+interface Files {
     external: {
         /** Link to the externally hosted content. */
         url: string
@@ -257,5 +257,5 @@ interface FileMap {
         expiry_time: string
     }
 }
-export type FileType = keyof FileMap
-export type File<T extends FileType = FileType> = NotionObj<FileMap, T>
+export type FileType = keyof Files
+export type File<T extends FileType = FileType> = NotionObj<Files, T>

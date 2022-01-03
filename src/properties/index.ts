@@ -5,20 +5,20 @@ export { Pages }
 
 export type PropertyType = Pages.Property['type']
 
-interface FormulaMap {
+interface Formulas {
     string: string | null
     number: number | null
     boolean: boolean
     date: Date | null
 }
-export type FormulaType = keyof FormulaMap
+export type FormulaType = keyof Formulas
 export type Formula<T extends FormulaType = FormulaType> = NotionObj<
-    FormulaMap,
+    Formulas,
     T
 >
 
 type OmitId<T extends { id: string }> = T extends T ? Omit<T, 'id'> : never
-interface RollupMap {
+interface Rollups {
     number: {
         number: number
         function:
@@ -68,5 +68,5 @@ interface RollupMap {
             | 'percent_not_empty'
     }
 }
-export type RollupType = keyof RollupMap
-export type Rollup<T extends RollupType = RollupType> = NotionObj<RollupMap, T>
+export type RollupType = keyof Rollups
+export type Rollup<T extends RollupType = RollupType> = NotionObj<Rollups, T>

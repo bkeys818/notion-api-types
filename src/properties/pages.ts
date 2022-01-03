@@ -3,7 +3,7 @@ import { NotionObj } from '../global'
 import { SelectOptions } from './global'
 import { RichText, User, File } from '..'
 
-interface PropertyMap {
+interface Properties {
     rich_text: { rich_text: RichText[] }
     number: { number: number | null }
     select: { select: SelectOptions | null }
@@ -42,9 +42,9 @@ interface PropertyMap {
     last_edited_by: { last_edited_by: User }
 }
 
-export type PropertyType = keyof PropertyMap
+export type PropertyType = keyof Properties
 export type Property<T extends PropertyType = PropertyType> = NotionObj<
-    PropertyMap,
+    Properties,
     T,
     {
             /**
