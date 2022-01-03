@@ -91,11 +91,11 @@ export type User<T extends UserType = UserType> = NotionObj<
 
 interface Text {
     /** Rich text in the block. */
-    text: RichText
+    text: RichText[]
 }
 interface Caption {
     /** Caption of the block */
-    caption: RichText
+    caption: RichText[]
 }
 interface BlockMap {
     paragraph: Text
@@ -129,9 +129,9 @@ interface BlockMap {
         /** Plain text of the database title */
         title: string
     }
-    heading_1: { text: RichText }
-    heading_2: { text: RichText }
-    heading_3: { text: RichText }
+    heading_1: Text
+    heading_2: Text
+    heading_3: Text
     embed: Caption & {
         /** Link to website the embed block will display. */
         url: string
