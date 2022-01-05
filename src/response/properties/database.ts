@@ -1,4 +1,4 @@
-import { NotionObject } from '../utils'
+import { NotionObject } from '../../utils'
 import { PropertyType } from '..'
 import { Rollup } from './rollup'
 import { SelectOptions } from './global'

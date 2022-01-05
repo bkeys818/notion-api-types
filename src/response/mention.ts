@@ -1,4 +1,4 @@
-import { NotionObject } from './utils'
+import { NotionObject } from '../utils'
 import { User } from '.'
 import { NotionDate } from './global'
 

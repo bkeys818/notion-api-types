@@ -1,4 +1,4 @@
-import { ComplexNotionObject, Resolve } from '../utils'
+import { ComplexNotionObject, Resolve } from '../../utils'
 import { NotionDate } from '../global'
 import { PropertyType, PageProperty } from '..'
 

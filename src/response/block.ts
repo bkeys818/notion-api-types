@@ -1,4 +1,4 @@
-import { NotionObject } from './utils'
+import { NotionObject } from '../utils'
 import { RichText, File } from '.'
 import { Emoji } from './global'
 

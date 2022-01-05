@@ -1,4 +1,4 @@
-import { NotionObject } from './utils'
+import { NotionObject } from '../utils'
 
 interface Parents {
     /** The ID of the {@link Database database} that this page belongs to. */

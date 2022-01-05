@@ -1,5 +1,5 @@
 import { NotionDate } from '../global'
-import { NotionObject } from '../utils'
+import { NotionObject } from '../../utils'
 import { RichText, User, File } from '..'
 import { Rollup } from './rollup'
 import { Formula } from './formula'

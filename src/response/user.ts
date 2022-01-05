@@ -1,4 +1,4 @@
-import { NotionObject } from './utils'
+import { NotionObject } from '../utils'
 
 interface Users {
     /** Properties only present for non-bot users. */
