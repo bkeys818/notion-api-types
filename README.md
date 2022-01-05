@@ -44,8 +44,8 @@ const title = page.properties.Title as PageProperty<'title'>
 <!-- Markdown link & img dfn's -->
 
 [version-image]: https://img.shields.io/github/package-json/v/bkeys818/notion-api-types
-[version-link]: https://github.com/bkeys818/notion-api-types/releases/tag/v0.2.0
+[version-link]: https://github.com/bkeys818/notion-api-types/releases/tag/v0.3.0
 [npm-downloads]: https://img.shields.io/npm/dm/notion-api-types.svg
-[npm-link]: https://www.npmjs.com/package/notion-api-types/v/0.2.0
+[npm-link]: https://www.npmjs.com/package/notion-api-types/v/0.3.0
 [test-status]: https://github.com/bkeys818/notion-api-types/actions/workflows/push-to-main.yaml/badge.svg?branch=main&event=push
 [test-link]: https://github.com/bkeys818/notion-api-types/actions/workflows/push-to-main.yaml
