@@ -7,7 +7,7 @@
     "license": "MIT",
     "scripts": {
         "prepare": "husky install",
-        "build": "tsc",
+        "build": "rimraf types && tsc",
         "test": "yarn build && tsc -p tests.tsconfig.json"
     },
     "types": "types",
