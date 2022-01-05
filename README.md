@@ -24,7 +24,7 @@ Without a generic parameter value, the type will default to any of the possible 
 With a generic parameter value, it will be the type where the `'type'` property is that value.
 
 ```ts
-import type { Page, PageProperty } from 'notion-api-types'
+import type { Page, PageProperty } from 'notion-api-types/response'
 
 const page: Page = { ... }
 let title: PageProperty<'title'>
@@ -35,7 +35,7 @@ if (page.properties.Title.type == 'title')
 If the property type is already known use [Type Assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions)
 
 ```ts
-import type { Page, PageProperty } from 'notion-api-types'
+import type { Page, PageProperty } from 'notion-api-types/response'
 
 const page: Page = { ... }
 const title = page.properties.Title as PageProperty<'title'>
