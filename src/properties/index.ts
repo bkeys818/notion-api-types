@@ -1,2 +1,5 @@
 export * as Databases from './databases'
-export * as Pages from './pages'
+import * as Pages from './pages'
+export { Pages }
+
+export type PropertyType = Pages.Property['type']
