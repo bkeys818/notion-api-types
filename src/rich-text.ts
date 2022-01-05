@@ -1,36 +1,18 @@
-import * as Mentions from './mentions'
+import { NotionObject } from './utils'
+import { Mention } from '.'
 
-interface RichTextBase {
-    /** The plain text without annotations. */
-    plain_text: string
-    /** The URL of any link or internal Notion mention in this text, if any. */
-    href: string | null
-    /** All annotations that apply to this rich text. Annotations include colors and bold/italics/underline/strikethrough. */
-    annotations: Annotations
-}
-
-export interface Text extends RichTextBase {
-    type: 'text'
+interface RichTexts {
     text: {
         /** Text content. This field contains the actual content of your text and is probably the field you'll use most often. */
         content: string
         /** Any inline link in this text. See link objects. */
         link: { type?: 'url'; url: string } | null
     }
-}
-export interface Mention extends RichTextBase {
-    type: 'mention'
-    mention: Mentions.Any
-}
-export interface Equation extends RichTextBase {
-    type: 'equation'
+    mention: Mention
     equation: {
         /** The LaTeX string representing this inline equation. */ expression: string
     }
 }
-
-export type Any = Text | Mention | Equation
-
 interface Annotations {
     /** Whether the text is bolded. */
     bold: boolean
@@ -64,3 +46,16 @@ interface Annotations {
         | 'pink_background'
         | 'red_background'
 }
+export type RichTextType = keyof RichTexts
+export type RichText<T extends RichTextType = RichTextType> = NotionObject<
+    RichTexts,
+    T,
+    {
+        /** The plain text without annotations. */
+        plain_text: string
+        /** The URL of any link or internal Notion mention in this text, if any. */
+        href: string | null
+        /** All annotations that apply to this rich text. Annotations include colors and bold/italics/underline/strikethrough. */
+        annotations: Annotations
+    }
+>

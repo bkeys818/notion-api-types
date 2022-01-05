@@ -1,2 +1,2 @@
-export * as Databases from './databases'
-export * as Pages from './pages'
+export * from './page'
+export * from './database'
