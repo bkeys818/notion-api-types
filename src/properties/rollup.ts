@@ -1,7 +1,6 @@
 import { ComplexNotionObject, Resolve } from '../utils'
 import { NotionDate } from '../global'
-import { PropertyType } from '..'
-import { Pages } from '.'
+import { PropertyType, PageProperty } from '..'
 
 interface Rollups {
     number: {
@@ -40,7 +39,7 @@ interface Rollups {
             | 'date_range'
     }
     array: {
-        array: OmitId<Pages.Property<Exclude<PropertyType, 'rollup'>>>[]
+        array: OmitId<PageProperty<Exclude<PropertyType, 'rollup'>>>[]
         function:
             | 'show_original'
             | 'show_unique_values'

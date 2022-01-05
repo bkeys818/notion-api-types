@@ -1,5 +1,5 @@
 import { NotionItem } from './global'
-import { Pages } from './properties'
+import { PageProperty } from './properties'
 
 // @ts-ignore
 import { Database } from '.'
@@ -17,7 +17,7 @@ export default interface Page extends NotionItem {
      *
      * key string Name of a property as it appears in Notion.
      *
-     * value object A {@link Pages.Property Property value object}.
+     * value object A {@link PageProperty Property value object}.
      */
-    properties: { [key: string]: Pages.Property }
+    properties: { [key: string]: PageProperty }
 }

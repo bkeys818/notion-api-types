@@ -1,6 +1,6 @@
 import { NotionItem } from './global'
 import { Parent, RichText } from '.'
-import { Databases } from './properties'
+import { DatabaseProperty } from './properties'
 
 export default interface Database extends NotionItem {
     object: 'database'
@@ -11,9 +11,9 @@ export default interface Database extends NotionItem {
      *
      * `key`: string - The name of the property as it appears in Notion.
      *
-     * `value`: object - A {@link Properties.Databases.Any Property object}.
+     * `value`: object - A {@link DatabaseProperty Property object}.
      */
-    properties: { [key: string]: Databases.Property }
+    properties: { [key: string]: DatabaseProperty }
     /** The parent of this page. */
     parent: Parent<'page_id' | 'workspace'>
 }

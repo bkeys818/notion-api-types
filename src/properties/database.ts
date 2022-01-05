@@ -1,9 +1,9 @@
 import { NotionObject } from '../utils'
 import { PropertyType } from '..'
-import { Rollup } from '.'
+import { Rollup } from './rollup'
 import { SelectOptions } from './global'
 
-interface Properties {
+interface DatabaseProperties {
     title: {}
     rich_text: {}
     number: {
@@ -86,8 +86,8 @@ interface Properties {
     last_edited_by: {}
 }
 
-export type Property<T extends PropertyType = PropertyType> = NotionObject<
-    Properties,
+export type DatabaseProperty<T extends PropertyType = PropertyType> = NotionObject<
+    DatabaseProperties,
     T,
     {
         /**
