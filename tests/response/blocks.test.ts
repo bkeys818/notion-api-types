@@ -1,4 +1,4 @@
-import type { Block } from '..'
+import type { Block } from '../../types/response'
 import richText from './rich-texts.test'
 
 const paragraph: Block<'paragraph'> = {

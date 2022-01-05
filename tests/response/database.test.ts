@@ -1,4 +1,4 @@
-import { Database } from '../types'
+import { Database } from '../../types/response'
 
 const database: Database = {
     object: 'database',

@@ -1,4 +1,4 @@
-import type { Parent } from '..'
+import type { Parent } from '../../types/response'
 
 const page: Parent<'page_id'> = {
     type: 'page_id',
