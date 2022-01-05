@@ -6,7 +6,8 @@
 [![Run test][test-status]][test-link]
 [![Downloads Stats][npm-downloads]][npm-link]
 
-This package defines types for the Notion API responses. It conatians only `*.d.ts` files, so it won't increase the size of a compressed package.
+This package defines types for the Notion API responses.
+It contains only `*.d.ts` files, so it won't increase the size of a compressed package.
 
 ## Installation
 
@@ -18,7 +19,9 @@ yarn add --D notion-api-types
 
 ## Usage
 
-Any type with a `'type'` property can be used with or without a generic parameter value. Without a generic parameter value, the type will default to any of the possible values (as a union). With a generic parameter value, it will be the type where the `'type'` property is that value.
+Any type with a `'type'` property can be used with or without a generic parameter value.
+Without a generic parameter value, the type will default to any of the possible values (as a union).
+With a generic parameter value, it will be the type where the `'type'` property is that value.
 
 ```ts
 import type { Page, PageProperty } from 'notion-api-types'

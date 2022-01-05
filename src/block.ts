@@ -33,7 +33,7 @@ interface Blocks {
         }
     }
     template: Text
-    column: {}
+    column: Record<string, never>
     child_page: {
         /** Plain text of page title. */
         title: string
@@ -58,15 +58,15 @@ interface Blocks {
         url: string
     }
     equation: { /** A KaTeX compatible string */ expression: string }
-    divider: {}
-    table_of_contents: {}
-    breadcrumb: {}
-    column_list: {}
+    divider: Record<string, never>
+    table_of_contents: Record<string, never>
+    breadcrumb: Record<string, never>
+    column_list: Record<string, never>
     link_preview: { url: string }
     link_to_page:
         | { type: 'page_id'; page_id: string }
         | { type: 'database_id'; database_id: string }
-    unsupported: {}
+    unsupported: Record<string, never>
 }
 export type BlockType = keyof Blocks
 export type Block<T extends BlockType = BlockType> = NotionObject<

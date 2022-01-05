@@ -1,7 +1,7 @@
 import { NotionItem } from './global'
 import { PageProperty } from './properties'
 
-// @ts-ignore
+// @ts-expect-error Import is used in tsdoc link
 import { Database } from '.'
 
 export default interface Page extends NotionItem {

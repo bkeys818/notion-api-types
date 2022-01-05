@@ -20,10 +20,16 @@
         "eslint-plugin-prettier": "^4.0.0",
         "husky": "^7.0.0",
         "lint-staged": ">=10",
+        "markdownlint-cli": "^0.30.0",
         "prettier": "^2.5.1",
         "typescript": "^4.5.4"
     },
     "lint-staged": {
-        "*.js": "eslint --cache --fix"
+        "*.ts": "eslint --cache --fix",
+        "*.md": [
+            "prettier -w",
+            "markdownlint"
+        ],
+        "*.{json,jsonc}": "prettier -w"
     }
 }

@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error Import is used in tsdoc link
 import type { DatabaseProperty } from '../database'
 
 export interface SelectOptions {

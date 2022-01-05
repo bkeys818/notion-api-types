@@ -4,8 +4,8 @@ import { Rollup } from './rollup'
 import { SelectOptions } from './global'
 
 interface DatabaseProperties {
-    title: {}
-    rich_text: {}
+    title: Record<string, never>
+    rich_text: Record<string, never>
     number: {
         format:
             | 'number'
@@ -49,13 +49,13 @@ interface DatabaseProperties {
     }
     select: { options: SelectOptions[] }
     multi_select: { options: SelectOptions[] }
-    date: {}
-    people: {}
-    files: {}
-    checkbox: {}
-    url: {}
-    email: {}
-    phone_number: {}
+    date: Record<string, never>
+    people: Record<string, never>
+    files: Record<string, never>
+    checkbox: Record<string, never>
+    url: Record<string, never>
+    email: Record<string, never>
+    phone_number: Record<string, never>
     formula: {
         /** Formula to evaluate for this property. You can read more about the [syntax for formulas](https://notion.so/notion/Formulas-28f3f5c3ae644c59b4d862046ea6a541) in the help center. */
         expression: string
@@ -80,23 +80,24 @@ interface DatabaseProperties {
         /** The function that is evaluated for every page in the relation of the rollup. */
         function: Rollup['function']
     }
-    created_time: {}
-    created_by: {}
-    last_edited_time: {}
-    last_edited_by: {}
+    created_time: Record<string, never>
+    created_by: Record<string, never>
+    last_edited_time: Record<string, never>
+    last_edited_by: Record<string, never>
 }
 
-export type DatabaseProperty<T extends PropertyType = PropertyType> = NotionObject<
-    DatabaseProperties,
-    T,
-    {
-        /**
-         * The ID of the property, usually a short string of random letters and symbols.
-         *
-         * Some automatically generated property types have special human-readable IDs. For example, all Title properties have an ID of `"title"`.
-         */
-        id: string
-        /** The name of the property as it appears in Notion. */
-        name: string
-    }
->
+export type DatabaseProperty<T extends PropertyType = PropertyType> =
+    NotionObject<
+        DatabaseProperties,
+        T,
+        {
+            /**
+             * The ID of the property, usually a short string of random letters and symbols.
+             *
+             * Some automatically generated property types have special human-readable IDs. For example, all Title properties have an ID of `"title"`.
+             */
+            id: string
+            /** The name of the property as it appears in Notion. */
+            name: string
+        }
+    >

@@ -8,22 +8,22 @@ assignees: ''
 
 ## Description
 
-<!--- Is your feature request related to a problem? Please give description of what the problem is. -->
+<!-- Is your feature request related to a problem? Please give description of what the problem is. -->
 
-<!--- Provide a description of the change or addition you'd like. -->
+<!-- Provide a description of the change or addition you'd like. -->
 
-<!--- How can this change benefit you and others? -->
+<!-- How can this change benefit you and others? -->
 
 ## Context
 
-<!--- [Optional] Add any other context or screenshots about the feature request here. -->
+<!-- [Optional] Add any other context or screenshots about the feature request here. -->
 
 ## Possible Implementation
 
-<!--- [Optional] Suggest an idea for implementing addition or change -->
+<!-- [Optional] Suggest an idea for implementing addition or change -->
 
 ## Environment
 
-<!--- Include as many relevant details about the environment you experienced the bug in -->
+<!-- Include as many relevant details about the environment you experienced the bug in -->
 
 - Version used:
