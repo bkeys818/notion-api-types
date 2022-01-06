@@ -3,8 +3,8 @@
 > Types for the [Notion API](https://developers.notion.com)
 
 [![Version][version-image]][version-link]
-[![Run test][test-status]][test-link]
 [![Downloads Stats][npm-downloads]][npm-link]
+[![Run test][test-status]][test-link]
 
 This package defines types for the Notion API responses.
 It contains only `*.d.ts` files, so it won't increase the size of a compressed package.
@@ -43,7 +43,7 @@ const title = page.properties.Title as PageProperty<'title'>
 
 <!-- Markdown link & img dfn's -->
 
-[version-image]: https://img.shields.io/github/package-json/v/bkeys818/notion-api-types
+[version-image]: https://img.shields.io/github/package-json/v/bkeys818/notion-api-types/v0.3.0?label=version
 [version-link]: https://github.com/bkeys818/notion-api-types/releases/tag/v0.3.0
 [npm-downloads]: https://img.shields.io/npm/dm/notion-api-types.svg
 [npm-link]: https://www.npmjs.com/package/notion-api-types/v/0.3.0
