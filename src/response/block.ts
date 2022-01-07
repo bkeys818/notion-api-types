@@ -66,6 +66,18 @@ interface Blocks {
     link_to_page:
         | { type: 'page_id'; page_id: string }
         | { type: 'database_id'; database_id: string }
+    table: {
+        /** Number of columns in the table. */
+        readonly table_width: number
+        /** Whether or not the table has a column header. If `true`, the first row in the table will appear visually distinct from the other rows. */
+        has_column_header: boolean
+        /** Whether or not the table has a header row. If true, the first column in the table will appear visually distinct from the other columns. */
+        has_row_header: boolean
+    }
+    table_row: {
+        /** Array of cell contents in horizontal display order. Array length should match the `"table_width"` value of the table containing this row. Each cell itself is an array of rich text objects. */
+        cells: RichText[][]
+    }
     unsupported: Record<string, never>
 }
 export type BlockType = keyof Blocks
