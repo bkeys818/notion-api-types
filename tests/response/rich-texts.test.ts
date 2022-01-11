@@ -1,4 +1,4 @@
-import type { RichText } from '../../types/response'
+import type { RichText, RichTexts } from '../../types/response'
 import { person } from './users.test'
 
 const colors: RichText['annotations']['color'][] = [
@@ -42,14 +42,14 @@ const annotations: RichText['annotations'][] = [
     },
 ]
 
-const textBasic: RichText<'text'> = {
+const textBasic: RichTexts.Text = {
     type: 'text',
     text: { content: 'hello world!', link: null },
     annotations: annotations[0],
     plain_text: 'default',
     href: null,
 }
-const textLink: RichText<'text'> = {
+const textLink: RichTexts.Text = {
     type: 'text',
     text: { content: 'hello world!', link: { url: 'http://localhost:8080' } },
     annotations: annotations[0],
@@ -57,7 +57,7 @@ const textLink: RichText<'text'> = {
     href: 'http://localhost:8080',
 }
 
-const equation: RichText<'equation'> = {
+const equation: RichTexts.Equation = {
     type: 'equation',
     equation: { expression: 'E = mc^2' },
     annotations: annotations[0],
@@ -65,14 +65,14 @@ const equation: RichText<'equation'> = {
     href: null,
 }
 
-const mentionUser: RichText<'mention'> = {
+const mentionUser: RichTexts.Mention = {
     type: 'mention',
     mention: { type: 'user', user: person },
     annotations: annotations[0],
     plain_text: '@Ben Keys',
     href: null,
 }
-const mentionPage: RichText<'mention'> = {
+const mentionPage: RichTexts.Mention = {
     type: 'mention',
     mention: {
         type: 'page',
@@ -84,7 +84,7 @@ const mentionPage: RichText<'mention'> = {
     plain_text: 'basic title',
     href: 'https://www.notion.so/003bd3fd67e04c56bca448bc7575f49e',
 }
-const mentionDatabase: RichText<'mention'> = {
+const mentionDatabase: RichTexts.Mention = {
     type: 'mention',
     mention: {
         type: 'database',
@@ -96,7 +96,7 @@ const mentionDatabase: RichText<'mention'> = {
     plain_text: 'Database For Testing',
     href: 'https://www.notion.so/1d05903f7b76465ab4f0feb577927e8f',
 }
-const mentionDate: RichText<'mention'> = {
+const mentionDate: RichTexts.Mention = {
     type: 'mention',
     mention: {
         type: 'date',
