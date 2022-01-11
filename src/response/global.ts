@@ -1,4 +1,4 @@
-import { Parent, File } from '.'
+import { Parent, Files } from '.'
 
 export interface NotionItem {
     id: string
@@ -9,7 +9,7 @@ export interface NotionItem {
     /** Page icon. */
     icon: File | Emoji | null
     /** Page cover image. */
-    cover: File<'external'> | null
+    cover: Files.External | null
     /** The parent of this page. */
     parent: Parent
     /** The URL of the Notion page. */

@@ -1,10 +1,18 @@
-import { NotionObject } from '../utils'
+interface FileBase {
+    /** Type of this file object */
+    type: string
+}
 
-interface Files {
+export interface External extends FileBase {
+    type: 'external'
     external: {
         /** Link to the externally hosted content. */
         url: string
     }
+}
+
+export interface File extends FileBase {
+    type: 'file'
     file: {
         /** Authenticated S3 URL to the file. The file URL will be valid for 1 hour but updated links can be requested if required. */
         url: string
@@ -12,5 +20,3 @@ interface Files {
         expiry_time: string
     }
 }
-export type FileType = keyof Files
-export type File<T extends FileType = FileType> = NotionObject<Files, T>

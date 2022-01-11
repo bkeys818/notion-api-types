@@ -1,5 +1,5 @@
 import { NotionItem } from './global'
-import { PageProperty } from './properties'
+import { PageProperty } from '.'
 
 // @ts-expect-error Import is used in tsdoc link
 import { Database } from '.'

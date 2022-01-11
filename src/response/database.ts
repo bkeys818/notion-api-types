@@ -1,11 +1,10 @@
 import { NotionItem } from './global'
-import { Parent, RichText } from '.'
-import { DatabaseProperty } from './properties'
+import { Parents, RichTexts, DatabaseProperty } from '.'
 
 export default interface Database extends NotionItem {
     object: 'database'
     /** Name of the page as it appears in Notion. See {@link RichTexts.Text rich text object} for a breakdown of the properties. */
-    title: [RichText<'text'>]
+    title: [RichTexts.Text]
     /**
      * Schema of properties for the database as they appear in Notion.
      *
@@ -15,5 +14,5 @@ export default interface Database extends NotionItem {
      */
     properties: { [key: string]: DatabaseProperty }
     /** The parent of this page. */
-    parent: Parent<'page_id' | 'workspace'>
+    parent: Parents.PageId | Parents.Workspace
 }
