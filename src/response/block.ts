@@ -151,11 +151,11 @@ export interface LinkPreview extends BlockBase {
 export interface SyncedBlock extends BlockBase {
     type: 'synced_block'
     synced_block: {
-        syncedfrom: null | {
+        synced_from: null | {
             /** Type of this synced from object.  */
-            type: 'blockid'
+            type: 'block_id'
             /** Identifier of an original syncedblock */
-            blockid: string
+            block_id: string
         }
     }
 }
@@ -166,18 +166,18 @@ export interface Template extends BlockBase {
 export interface LinkToPage extends ChildlessBase {
     type: 'link_to_page'
     link_to_page:
-        | { type: 'pageid'; pageid: string }
-        | { type: 'databaseid'; databaseid: string }
+        | { type: 'page_id'; page_id: string }
+        | { type: 'database_id'; database_id: string }
 }
 export interface Table extends BlockBase {
     type: 'table'
     table: {
         /** Number of columns in the table. */
-        readonly tablewidth: number
+        readonly table_width: number
         /** Whether or not the table has a column header. If `true`, the first row in the table will appear visually distinct from the other rows. */
-        hascolumnheader: boolean
+        has_column_header: boolean
         /** Whether or not the table has a header row. If true, the first column in the table will appear visually distinct from the other columns. */
-        hasrowheader: boolean
+        has_row_header: boolean
     }
 }
 export interface TableRow extends BlockBase {
