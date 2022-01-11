@@ -1,12 +1,12 @@
 import Database from './database'
 import Page from './page'
 export { Database, Page }
-import * as Users from './user'
-import * as Blocks from './block'
-import * as Parents from './parent'
-import * as RichTexts from './rich-text'
-import * as Mentions from './mention'
-import * as Files from './file'
+import * as Users from './users'
+import * as Blocks from './blocks'
+import * as Parents from './parents'
+import * as RichTexts from './rich-texts'
+import * as Mentions from './mentions'
+import * as Files from './files'
 export {
     PageProperty,
     DatabaseProperty,

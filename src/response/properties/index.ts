@@ -1,5 +1,5 @@
-import * as Formulas from './formula'
-import * as Rollups from './rollup'
+import * as Formulas from './formulas'
+import * as Rollups from './rollups'
 import * as DatabaseProperties from './database'
 import * as PageProperties from './page'
 
