@@ -8,7 +8,7 @@ assignees: ''
 
 ## Description
 
-<!-- Is your feature request related to a problem? Please give description of what the problem is. -->
+<!-- Is your feature request related to a problem? Please give a description of what the problem is. -->
 
 <!-- Provide a description of the change or addition you'd like. -->
 
@@ -26,4 +26,4 @@ assignees: ''
 
 <!-- Include as many relevant details about the environment you experienced the bug in -->
 
-- Version used:
+- Version used: ``
