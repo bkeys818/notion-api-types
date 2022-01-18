@@ -1,5 +1,3 @@
-import * as NotionResponse from './responses'
-import * as NotionRequest from './requests'
-import * as Endpoints from './endpoints'
-
-export { NotionResponse, NotionRequest, Endpoints }
+export * as NotionResponse from './responses'
+export * as NotionRequest from './requests'
+export * as Endpoints from './endpoints'
