@@ -2,7 +2,10 @@
     "extends": "@tsconfig/recommended/tsconfig.json",
     "compilerOptions": {
         /* Emit */
-        "noEmit": true
+        "noEmit": true,
+
+        /* Type Checking */
+        "strictNullChecks": true
     },
-    "include": ["tests"]
+    "include": ["tests", "types"]
 }
