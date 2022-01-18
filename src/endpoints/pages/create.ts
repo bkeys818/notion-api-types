@@ -1,6 +1,6 @@
 import { RequestTemplate } from '../global'
 import { NotionRequest, NotionResponse } from '../..'
-import { Emoji } from '../../request/global'
+import { Emoji } from '../../requests/global'
 
 export interface Request extends RequestTemplate {
     endpoint: `pages`

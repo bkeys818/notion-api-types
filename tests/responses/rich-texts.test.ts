@@ -1,4 +1,4 @@
-import type { RichText, RichTexts } from '../../types/response'
+import type { RichText, RichTexts } from '../../types/responses'
 import { person } from './users.test'
 
 const colors: RichText['annotations']['color'][] = [

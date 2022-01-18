@@ -1,4 +1,4 @@
-import { Formulas as ResponseFormulas } from '../../response/properties'
+import { Formulas as ResponseFormulas } from '../../responses/properties'
 import { PartialPick } from '../utils'
 import { NotionDate } from '../global'
 

@@ -1,4 +1,4 @@
-import type { Parents } from '../../types/response'
+import type { Parents } from '../../types/responses'
 
 const page: Parents.PageId = {
     type: 'page_id',

@@ -1,4 +1,4 @@
-import type { Users } from '../../types/response'
+import type { Users } from '../../types/responses'
 
 export const person: Users.Person = {
     object: 'user',

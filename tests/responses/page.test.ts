@@ -1,4 +1,4 @@
-import { Page } from '../../types/response'
+import { Page } from '../../types/responses'
 
 const page: Page = {
     object: 'page',

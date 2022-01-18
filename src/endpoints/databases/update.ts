@@ -5,8 +5,8 @@ import { NotionRequest, NotionResponse } from '../../'
 
 // import { Property as ResponseProp } from '../../properties/databases'
 // import { PropertyType } from '../..'
-import { SelectOptions as ResponseSelectOptions } from '../../response/properties/global'
-import { SelectOptions } from '../../request/properties/global'
+import { SelectOptions as ResponseSelectOptions } from '../../responses/properties/global'
+import { SelectOptions } from '../../requests/properties/global'
 import { Resolve } from '../../utils'
 // import { NotionObj } from '../../global'
 
