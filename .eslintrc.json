@@ -15,7 +15,12 @@
         "sourceType": "module"
     },
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "@typescript-eslint/no-empty-interface": [
+            "error",
+            { "allowSingleExtends": true }
+        ],
+        "@typescript-eslint/no-explicit-any": 0
     },
     "plugins": ["prettier", "@typescript-eslint"]
 }
