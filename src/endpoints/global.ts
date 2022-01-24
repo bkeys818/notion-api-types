@@ -24,5 +24,4 @@ export interface RequestTemplate {
         'Notion-Version': '2021-08-16'
         Authorization: `Bearer ${string}`
     }
-    params?: { [key: string]: any }
 }

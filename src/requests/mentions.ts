@@ -7,14 +7,14 @@ export type Database = PartialPick<NotionResponse.Mentions.Database, 'type'>
 
 interface MentionBase {
     /** Type of the inline mention. */
-    type: string
+    type?: string
 }
 
 export interface User extends MentionBase {
-    type: 'user'
+    type?: 'user'
     user: NotionRequest.User
 }
 export interface Date extends MentionBase {
-    type: 'date'
+    type?: 'date'
     date: NotionDate
 }

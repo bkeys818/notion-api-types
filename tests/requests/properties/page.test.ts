@@ -1,7 +1,7 @@
 import type { PageProperties } from '../../../types/requests/properties'
 import * as request from '..'
-import { selectOptions } from './global'
-import { notionDates } from '../global'
+import { selectOptions } from './global.test'
+import { notionDates } from '../global.test'
 
 export const richTexts: Record<
     PageProperties.RichText['rich_text'][number]['type'] & string,

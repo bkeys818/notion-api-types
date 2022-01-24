@@ -1,5 +1,5 @@
 import type { Mentions } from '../../types/requests'
-import { notionDates } from './global'
+import { notionDates } from './global.test'
 import * as request from '.'
 
 export const page = (pageId: string): Mentions.Page => ({

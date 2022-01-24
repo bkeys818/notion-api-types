@@ -7,11 +7,6 @@ interface BlockBase {
     type?: string
 }
 
-interface ParentBlock extends BlockBase {
-    /** Any nested children blocks of the block */
-    children: NotionRequest.Block[]
-}
-
 interface Text {
     /** Rich text in the block. */
     text: NotionRequest.RichText[]
@@ -20,41 +15,45 @@ interface Caption {
     /** Caption of the block */
     caption: NotionRequest.RichText[]
 }
+interface Children {
+    /** Any nested children blocks of the block */
+    children?: NotionRequest.Block[]
+}
 
-export interface Paragraph extends ParentBlock {
+export interface Paragraph extends BlockBase {
     type?: 'paragraph'
-    paragraph: Text
+    paragraph: Text & Children
 }
-export interface Heading1 extends ParentBlock {
+export interface Heading1 extends BlockBase {
     type?: 'heading_1'
-    heading_1: Text
+    heading_1: Text & Children
 }
-export interface Heading2 extends ParentBlock {
+export interface Heading2 extends BlockBase {
     type?: 'heading_2'
-    heading_2: Text
+    heading_2: Text & Children
 }
-export interface Heading3 extends ParentBlock {
+export interface Heading3 extends BlockBase {
     type?: 'heading_3'
-    heading_3: Text
+    heading_3: Text & Children
 }
-export interface BulletedListItem extends ParentBlock {
+export interface BulletedListItem extends BlockBase {
     type?: 'bulleted_list_item'
-    bulleted_list_item: Text
+    bulleted_list_item: Text & Children
 }
-export interface NumberedListItem extends ParentBlock {
+export interface NumberedListItem extends BlockBase {
     type?: 'numbered_list_item'
-    numbered_list_item: Text
+    numbered_list_item: Text & Children
 }
-export interface ToDo extends ParentBlock {
+export interface ToDo extends BlockBase {
     type?: 'to_do'
     to_do: Text & {
         /** Whether the todo is checked or not. */
         checked: boolean | null
-    }
+    } & Children
 }
-export interface Toggle extends ParentBlock {
+export interface Toggle extends BlockBase {
     type?: 'toggle'
-    toggle: Text
+    toggle: Text & Children
 }
 export interface Embed extends BlockBase {
     type?: 'embed'
@@ -86,16 +85,16 @@ export interface Bookmark extends BlockBase {
         url: string
     }
 }
-export interface Callout extends ParentBlock {
+export interface Callout extends BlockBase {
     type?: 'callout'
     callout: Text & {
         /** Page icon. */
-        icon: Emoji | NotionRequest.File
-    }
+        icon?: Emoji | NotionRequest.File
+    } & Children
 }
-export interface Quote extends ParentBlock {
+export interface Quote extends BlockBase {
     type?: 'quote'
-    quote: Text
+    quote: Text & Children
 }
 export interface Equation extends BlockBase {
     type?: 'equation'
@@ -113,29 +112,30 @@ export interface Breadcrumb extends BlockBase {
     type?: 'breadcrumb'
     breadcrumb: Record<string, never>
 }
-export interface Column extends ParentBlock {
+export interface Column extends BlockBase {
     type?: 'column'
-    column: Record<string, never>
+    column: Children
 }
-export interface ColumnList extends ParentBlock {
+export interface ColumnList extends BlockBase {
     type?: 'column_list'
-    column_list: Record<string, never>
-    children: Column[]
+    column_list: { children: Column[] }
 }
-export interface SyncedBlock extends ParentBlock {
+export interface SyncedBlock extends BlockBase {
     type?: 'synced_block'
-    synced_block: {
-        synced_from: null | {
-            /** Type of this synced from object.  */
-            type?: 'block_id'
-            /** Identifier of an original syncedblock */
-            block_id: string
-        }
-    }
+    synced_block:
+        | ({ synced_from: null } & Children)
+        | {
+              synced_from: {
+                  /** Type of this synced from object.  */
+                  type?: 'block_id'
+                  /** Identifier of an original syncedblock */
+                  block_id: string
+              }
+          }
 }
-export interface Template extends ParentBlock {
+export interface Template extends BlockBase {
     type?: 'template'
-    template: Text
+    template: Text & Children
 }
 export interface LinkToPage extends BlockBase {
     type?: 'link_to_page'
@@ -144,15 +144,14 @@ export interface LinkToPage extends BlockBase {
         'type'
     >
 }
-export interface Table extends ParentBlock {
+export interface Table extends BlockBase {
     type?: 'table'
     table: PartialPick<
         NotionResponse.Blocks.Table['table'],
         'has_column_header' | 'has_row_header'
-    >
-    children: TableRow[]
+    > & { children: TableRow[] }
 }
-export interface TableRow extends ParentBlock {
+export interface TableRow extends BlockBase {
     type?: 'table_row'
     table_row: {
         /** Array of cell contents in horizontal display order. Array length should match the `"table_width"` value of the table containing this row. Each cell itself is an array of rich text objects. */

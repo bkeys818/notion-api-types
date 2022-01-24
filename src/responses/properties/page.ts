@@ -64,7 +64,7 @@ export interface Checkbox extends PagePropertyBase {
 }
 export interface Url extends PagePropertyBase {
     type: 'url'
-    url: string
+    url: string | null
 }
 export interface Email extends PagePropertyBase {
     type: 'email'

@@ -5,9 +5,9 @@ import { Emoji } from '../../requests/global'
 export interface Request extends RequestTemplate {
     endpoint: `pages`
     method: 'POST'
-    params?: {
+    params: {
         parent: NotionRequest.Parent
-        properties: NotionRequest.PageProperty
+        properties: { [key: string]: NotionRequest.PageProperty }
         children?: NotionRequest.Block[]
         icon?: Emoji | NotionRequest.Files.External
         cover?: NotionRequest.Files.External

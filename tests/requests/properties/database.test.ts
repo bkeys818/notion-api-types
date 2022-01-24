@@ -1,5 +1,5 @@
 import type { DatabaseProperties } from '../../../types/requests/properties'
-import { selectOptions } from './global'
+import { selectOptions } from './global.test'
 
 export const title: DatabaseProperties.Title = { title: {} }
 
