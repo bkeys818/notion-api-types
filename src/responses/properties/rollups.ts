@@ -10,7 +10,7 @@ interface RollupBase {
 
 export interface Number extends RollupBase {
     type: 'number'
-    number: number
+    number: number | null
     function:
         | 'show_original'
         | 'show_unique_values'
@@ -30,7 +30,7 @@ export interface Number extends RollupBase {
 }
 export interface Date extends RollupBase {
     type: 'date'
-    date: NotionDate
+    date: NotionDate | null
     function:
         | 'show_original'
         | 'show_unique_values'
