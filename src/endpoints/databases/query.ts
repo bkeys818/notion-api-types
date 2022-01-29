@@ -11,14 +11,20 @@ export interface Request extends RequestTemplate {
     params?: {
         /** When supplied, limits which pages are returned based on the {@link Conditions filter conditions}. */
         filter?: Filter
-        sorts?: {
-            /** The name of the property to sort against. */
-            property: string
-            /** The name of the timestamp to sort against. */
-            timestamp: 'created_time' | 'last_edited_time'
-            /** The direction to sort. */
-            direction: 'ascending' | 'descending'
-        }[]
+        sorts?: (
+            | {
+                  /** The name of the property to sort against. */
+                  property: string
+                  /** The direction to sort. */
+                  direction: 'ascending' | 'descending'
+              }
+            | {
+                  /** The name of the timestamp to sort against. */
+                  timestamp: 'created_time' | 'last_edited_time'
+                  /** The direction to sort. */
+                  direction: 'ascending' | 'descending'
+              }
+        )[]
         /** When supplied, returns a page of results starting after the cursor provided. If not supplied, this endpoint will return the first page of results. */
         start_cursor?: string
         /** The number of items from the full list desired in the response. Maximum: 100 */
