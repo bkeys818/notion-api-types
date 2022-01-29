@@ -1,13 +1,22 @@
-import type { Parents } from '../../types/responses'
+import type { Parents, Parent } from '../../types/responses'
+import { index, AllUnionUsed } from '../utils'
 
-const page: Parents.PageId = {
+export const pageId: Parents.PageId = {
+    page_id: 'random_page_id',
     type: 'page_id',
-    page_id: '003bd3fd-67e0-4c56-bca4-48bc7575f49e',
 }
 
-const databse: Parents.DatabaseId = {
+export const databaseId: Parents.DatabaseId = {
+    database_id: 'random_database_id',
     type: 'database_id',
-    database_id: '1d05903f-7b76-465a-b4f0-feb577927e8f',
 }
 
-const workspace: Parents.Workspace = { type: 'workspace', workspace: true }
+export const workspace: Parents.Workspace = {
+    type: 'workspace',
+    workspace: true,
+}
+
+const allParents = [pageId, databaseId, workspace]
+const _: AllUnionUsed<Parent, typeof allParents[number]> = undefined
+const anyParent: Parent = allParents[index]
+export default anyParent
