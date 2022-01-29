@@ -1,4 +1,4 @@
-import { RequestTemplate } from './global'
+import { RequestTemplate, List } from './global'
 import { NotionResponse } from '..'
 
 export interface Request extends RequestTemplate {
@@ -15,12 +15,7 @@ export interface Request extends RequestTemplate {
             direction: 'ascending' | 'descending'
         }
         /** When supplied, filters the results based on the provided criteria. */
-        filter?: {
-            /** The name of the property to filter by. */
-            property: 'object'
-            /** The value of the property to filter the results by. */
-            value: SearchFilter<'object', 'page' | 'database'>
-        }
+        filter?: SearchFilter<'object', 'page' | 'database'>
         /** When supplied, returns a page of results starting after the cursor provided. If not supplied, this endpoint will return the first page of results. */
         start_cursor?: string
         /** The number of items from the full list desired in the response. Maximum: 100 */
@@ -28,7 +23,7 @@ export interface Request extends RequestTemplate {
     }
 }
 
-export type Response = NotionResponse.User
+export type Response = List<NotionResponse.Database | NotionResponse.Page>
 
 type SearchFilter<P, V> = {
     /** The name of the property to filter by. */

@@ -1,18 +1,12 @@
 import { RequestTemplate } from '../global'
 import { NotionRequest, NotionResponse } from '../../'
-
-// import { Create } from '.'
-
-// import { Property as ResponseProp } from '../../properties/databases'
-// import { PropertyType } from '../..'
 import { SelectOptions as ResponseSelectOptions } from '../../responses/properties/global'
 import { SelectOptions } from '../../requests/properties/global'
 import { Resolve } from '../../utils'
-// import { NotionObj } from '../../global'
 
 export interface Request extends RequestTemplate {
-    endpoint: `databases`
-    method: 'POST'
+    endpoint: `databases/${string}`
+    method: 'PATCH'
     params?: {
         title?: [NotionRequest.RichTexts.Text]
         properties?: {
@@ -20,7 +14,6 @@ export interface Request extends RequestTemplate {
         }
     }
 }
-
 export type Response = NotionResponse.Database
 
 type CreateProperty =
@@ -32,11 +25,11 @@ type CreateProperty =
     | Select
     | MultiSelect
 
-export interface Select {
+interface Select {
     type?: 'select'
     select: { options?: (ExisitingSelectOptions | SelectOptions)[] }
 }
-export interface MultiSelect {
+interface MultiSelect {
     type?: 'multi_select'
     multi_select: { options?: (ExisitingSelectOptions | SelectOptions)[] }
 }
