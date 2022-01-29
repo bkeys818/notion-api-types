@@ -1,4 +1,4 @@
-import { Parent, Files } from '.'
+import { Parent, Files, File } from '.'
 
 export interface NotionItem {
     id: string
