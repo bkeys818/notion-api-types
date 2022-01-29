@@ -1,5 +1,4 @@
 import { NotionRequest } from '../..'
-import * as Properties from '.'
 import { SelectOptions } from './global'
 import { NotionDate } from '../global'
 
@@ -27,10 +26,6 @@ export interface MultiSelect extends PagePropertyBase {
 export interface Date extends PagePropertyBase {
     type?: 'date'
     date: NotionDate | null
-}
-export interface Formula extends PagePropertyBase {
-    type?: 'formula'
-    formula: Properties.Formula
 }
 export interface Relation extends PagePropertyBase {
     type?: 'relation'

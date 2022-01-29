@@ -37,7 +37,6 @@ export type PageProperty =
     | PageProperties.Select
     | PageProperties.MultiSelect
     | PageProperties.Date
-    | PageProperties.Formula
     | PageProperties.Relation
     | PageProperties.Title
     | PageProperties.People
