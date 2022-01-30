@@ -26,6 +26,7 @@ export type Block =
     | Blocks.NumberedListItem
     | Blocks.ToDo
     | Blocks.Toggle
+    | Blocks.Code
     | Blocks.ChildPage
     | Blocks.ChildDatabase
     | Blocks.Embed

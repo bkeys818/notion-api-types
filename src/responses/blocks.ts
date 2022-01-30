@@ -65,6 +65,15 @@ export interface Toggle extends BlockBase {
     type: 'toggle'
     toggle: Text
 }
+export interface Code extends ChildlessBase {
+    type: 'code'
+    code: Text &
+        Caption & {
+            // prettier-ignore
+            /** Coding language in code block */
+            language: 'abap'| 'arduino'| 'bash'| 'basic'| 'c'| 'clojure'| 'coffeescript'| 'c++'| 'c#'| 'css'| 'dart'| 'diff'| 'docker'| 'elixir'| 'elm'| 'erlang'| 'flow'| 'fortran'| 'f#'| 'gherkin'| 'glsl'| 'go'| 'graphql'| 'groovy'| 'haskell'| 'html'| 'java'| 'javascript'| 'json'| 'julia'| 'kotlin'| 'latex'| 'less'| 'lisp'| 'livescript'| 'lua'| 'makefile'| 'markdown'| 'markup'| 'matlab'| 'mermaid'| 'nix'| 'objective-c'| 'ocaml'| 'pascal'| 'perl'| 'php'| 'plain text'| 'powershell'| 'prolog'| 'protobuf'| 'python'| 'r'| 'reason'| 'ruby'| 'rust'| 'sass'| 'scala'| 'scheme'| 'scss'| 'shell'| 'sql'| 'swift'| 'typescript'| 'vb.net'| 'verilog'| 'vhdl'| 'visual basic'| 'webassembly'| 'xml'| 'yaml'| 'java/c/c++/c#'
+        }
+}
 export interface ChildPage extends BlockBase {
     type: 'child_page'
     child_page: {

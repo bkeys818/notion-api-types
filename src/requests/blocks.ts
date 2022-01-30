@@ -55,6 +55,10 @@ export interface Toggle extends BlockBase {
     type?: 'toggle'
     toggle: Text & Children
 }
+export interface Code extends BlockBase {
+    type?: 'code'
+    code: Text & Caption & Pick<NotionResponse.Blocks.Code['code'], 'language'>
+}
 export interface Embed extends BlockBase {
     type?: 'embed'
     embed: Caption & {

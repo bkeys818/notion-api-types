@@ -26,6 +26,10 @@ export const toDo: Blocks.ToDo = { to_do: { text, checked: true, children } }
 
 export const toggle: Blocks.Toggle = { toggle: { text, children } }
 
+export const code: Blocks.Code = {
+    code: { text, caption, language: 'typescript' },
+}
+
 export const embed: Blocks.Embed = {
     embed: { url: 'http://localhost:5050', caption },
 }
@@ -90,6 +94,7 @@ const allBlocks = [
     numberedListItem,
     toDo,
     toggle,
+    code,
     embed,
     image,
     video,
