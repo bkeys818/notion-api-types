@@ -19,27 +19,42 @@ yarn add --D notion-api-types
 
 ## Usage
 
-Any type with a `'type'` property can be used with or without a generic parameter value.
-Without a generic parameter value, the type will default to any of the possible values (as a union).
-With a generic parameter value, it will be the type where the `'type'` property is that value.
+This module is built so you can import from the directories in it.
+You can import the top namespaces, but it will make for long code.
 
 ```ts
-import type { Page, PageProperty } from 'notion-api-types/response'
-
-const page: Page = { ... }
-let title: PageProperty<'title'>
-if (page.properties.Title.type == 'title')
-  title = page.properties.Title
+import type { Page, PageProperty } from 'notion-api-types/responses'
 ```
 
-If the property type is already known use [Type Assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions)
+Throughout the module,
+[namespaces](https://www.typescriptlang.org/docs/handbook/namespaces.html)
+will have plural names and
+[types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
+will be singular.
 
 ```ts
-import type { Page, PageProperty } from 'notion-api-types/response'
+import type { Page, PageProperty, PageProperties } from 'notion-api-types/responses'
 
 const page: Page = { ... }
-const title = page.properties.Title as PageProperty<'title'>
+const props: PageProperty[] = Object.values(page.properties)
+let title: PageProperties.Title
+for (const prop of props)
+    if (prop.type == 'title') title = prop
 ```
+
+If the property type is already known use
+[type assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions).
+
+```ts
+import type { Page, PageProperties } from 'notion-api-types/response'
+
+const page: Page = { ... }
+const title = page.properties.Title as PageProperties.Title
+```
+
+Using
+[import type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
+will keep the module from increase the size of your compiled javascript.
 
 <!-- Markdown link & img dfn's -->
 

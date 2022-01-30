@@ -7,8 +7,8 @@
     "license": "MIT",
     "scripts": {
         "prepare": "husky install",
-        "build": "rimraf types && tsc",
-        "test": "yarn build && tsc -p tests.tsconfig.json"
+        "build": "rimraf types && tsc -p src/tsconfig.json",
+        "test": "yarn build && tsc -p tests/tsconfig.json"
     },
     "types": "types",
     "devDependencies": {
@@ -26,7 +26,10 @@
         "typescript": "^4.5.4"
     },
     "lint-staged": {
-        "*.ts": "eslint --cache --fix",
+        "*.ts": [
+            "prettier -w",
+            "eslint --cache"
+        ],
         "*.md": [
             "prettier -w",
             "markdownlint"

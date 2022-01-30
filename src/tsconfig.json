@@ -1,0 +1,15 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        /* Emit */
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "outDir": "../types",
+
+        /* Type Checking */
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true
+    },
+    "exclude": ["../tests", "../types"]
+}
