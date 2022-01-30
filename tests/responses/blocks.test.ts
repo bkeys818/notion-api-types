@@ -67,6 +67,12 @@ const toggle: Blocks.Toggle = {
     type: 'toggle',
 }
 
+const code: Blocks.Code = {
+    ...childlessBase,
+    code: { text, caption, language: 'typescript' },
+    type: 'code',
+}
+
 const bulletedListItem1: Blocks.BulletedListItem = {
     ...blockBase,
     bulleted_list_item: { text },
@@ -226,6 +232,7 @@ const allBlocks = [
     numberedListItem,
     toDo,
     toggle,
+    code,
     bulletedListItem1,
     childPage,
     childDatabase,
