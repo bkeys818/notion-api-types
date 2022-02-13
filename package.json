@@ -11,6 +11,9 @@
         "test": "yarn build && tsc -p tests/tsconfig.json"
     },
     "types": "types",
+    "files": [
+        "types"
+    ],
     "devDependencies": {
         "@tsconfig/recommended": "^1.0.1",
         "@typescript-eslint/eslint-plugin": "^5.7.0",
