@@ -62,5 +62,5 @@ will keep the module from increase the size of your compiled javascript.
 [version-link]: https://github.com/bkeys818/notion-api-types/releases/tag/v0.4.0
 [npm-downloads]: https://img.shields.io/npm/dm/notion-api-types.svg
 [npm-link]: https://www.npmjs.com/package/notion-api-types/v/0.4.0
-[test-status]: https://github.com/bkeys818/notion-api-types/actions/workflows/push-to-main.yaml/badge.svg?branch=v0.4.0
-[test-link]: https://github.com/bkeys818/notion-api-types/actions/workflows/push-to-main.yaml
+[test-status]: https://github.com/bkeys818/notion-api-types/actions/workflows/run-tests.yaml/badge.svg?branch=v0.4.0
+[test-link]: https://github.com/bkeys818/notion-api-types/actions/workflows/run-tests.yaml
