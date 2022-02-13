@@ -8,11 +8,13 @@
     "scripts": {
         "prepare": "husky install",
         "build": "rimraf types && tsc -p src/tsconfig.json",
-        "test": "yarn build && tsc -p tests/tsconfig.json"
+        "test": "yarn build && tsc -p tests/tsconfig.json",
+        "prepack": "mv ./types/* ./",
+        "postpack": "for file in ./src/*; do file=${file##*/}; if [ $file = 'tsconfig.json' ]; then continue; elif [ ${file##*.} = 'ts' ]; then file=\"${file%.*}.d.ts\"; fi; rm -r $file; done"
     },
-    "types": "types",
+    "types": "index.d.ts",
     "files": [
-        "types"
+        "**/*.d.ts"
     ],
     "devDependencies": {
         "@tsconfig/recommended": "^1.0.1",
