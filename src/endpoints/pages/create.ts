@@ -7,7 +7,7 @@ export interface Request extends RequestTemplate {
     method: 'POST'
     params: {
         parent: NotionRequest.Parent
-        properties: { [key: string]: NotionRequest.PageProperty }
+        properties: { [key: string]: NotionRequest.PageProperty | undefined }
         children?: NotionRequest.Block[]
         icon?: Emoji | NotionRequest.Files.External
         cover?: NotionRequest.Files.External

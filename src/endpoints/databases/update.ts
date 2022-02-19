@@ -10,7 +10,7 @@ export interface Request extends RequestTemplate {
     params?: {
         title?: [NotionRequest.RichTexts.Text]
         properties?: {
-            [key: string]: CreateProperty
+            [key: string]: CreateProperty | undefined
         }
     }
 }

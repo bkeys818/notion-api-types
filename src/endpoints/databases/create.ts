@@ -9,7 +9,7 @@ export interface Request extends RequestTemplate {
         title?: [NotionRequest.RichTexts.Text]
         /** Requires a property with type `"title"` */
         properties: {
-            [key: string]: NotionRequest.DatabaseProperty
+            [key: string]: NotionRequest.DatabaseProperty | undefined
         }
     }
 }
