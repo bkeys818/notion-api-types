@@ -2,32 +2,38 @@ import type { Blocks, Block } from '../../types/requests'
 import { anyRichText, anyFile } from '.'
 import { index, AllUnionUsed } from '../utils'
 
-export const text: Blocks.Heading1['heading_1']['text'] = [anyRichText]
+export const rich_text: Blocks.Heading1['heading_1']['rich_text'] = [
+    anyRichText,
+]
 export const caption: Blocks.Image['image']['caption'] = [anyRichText]
-export const children: Block[] = [{ paragraph: { text } }]
+export const children: Block[] = [{ paragraph: { rich_text } }]
 
-export const paragraph: Blocks.Paragraph = { paragraph: { text, children } }
+export const paragraph: Blocks.Paragraph = {
+    paragraph: { rich_text, children },
+}
 
-export const heading1: Blocks.Heading1 = { heading_1: { text, children } }
+export const heading1: Blocks.Heading1 = { heading_1: { rich_text, children } }
 
-export const heading2: Blocks.Heading2 = { heading_2: { text, children } }
+export const heading2: Blocks.Heading2 = { heading_2: { rich_text, children } }
 
-export const heading3: Blocks.Heading3 = { heading_3: { text, children } }
+export const heading3: Blocks.Heading3 = { heading_3: { rich_text, children } }
 
 export const bulletedListItem: Blocks.BulletedListItem = {
-    bulleted_list_item: { text, children },
+    bulleted_list_item: { rich_text, children },
 }
 
 export const numberedListItem: Blocks.NumberedListItem = {
-    numbered_list_item: { text, children },
+    numbered_list_item: { rich_text, children },
 }
 
-export const toDo: Blocks.ToDo = { to_do: { text, checked: true, children } }
+export const toDo: Blocks.ToDo = {
+    to_do: { rich_text, checked: true, children },
+}
 
-export const toggle: Blocks.Toggle = { toggle: { text, children } }
+export const toggle: Blocks.Toggle = { toggle: { rich_text, children } }
 
 export const code: Blocks.Code = {
-    code: { text, caption, language: 'typescript' },
+    code: { rich_text, caption, language: 'typescript' },
 }
 
 export const embed: Blocks.Embed = {
@@ -46,9 +52,9 @@ export const bookmark: Blocks.Bookmark = {
     bookmark: { url: 'http://localhost:5050', caption },
 }
 
-export const callout: Blocks.Callout = { callout: { text, children } }
+export const callout: Blocks.Callout = { callout: { rich_text, children } }
 
-export const quote: Blocks.Quote = { quote: { text, children } }
+export const quote: Blocks.Quote = { quote: { rich_text, children } }
 
 export const equation: Blocks.Equation = { equation: { expression: 'e=mc^2' } }
 
@@ -70,7 +76,7 @@ export const syncedBlock: Blocks.SyncedBlock = {
     },
 }
 
-export const template: Blocks.Template = { template: { text, children } }
+export const template: Blocks.Template = { template: { rich_text, children } }
 
 export const linkToPage: Blocks.LinkToPage = {
     link_to_page: [
@@ -79,7 +85,7 @@ export const linkToPage: Blocks.LinkToPage = {
     ][index],
 }
 
-export const tableRow: Blocks.TableRow = { table_row: { cells: [text] } }
+export const tableRow: Blocks.TableRow = { table_row: { cells: [rich_text] } }
 
 export const table: Blocks.Table = {
     table: { table_width: 2, children: [tableRow, tableRow] },
