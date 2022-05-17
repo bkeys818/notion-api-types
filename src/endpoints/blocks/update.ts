@@ -5,7 +5,7 @@ import { Resolve } from '../../utils'
 export interface Request extends RequestTemplate {
     endpoint: `blocks/${string}`
     method: 'PATCH'
-    params?: UpdateType<'text' | 'checked'> & {
+    params?: UpdateType<'rich_text' | 'checked'> & {
         /** Set to true to archive (delete) a block. Set to false to un-archive (restore) a block. */
         archived?: boolean
     }
