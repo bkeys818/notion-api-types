@@ -1,6 +1,6 @@
 {
     "name": "notion-api-types",
-    "version": "0.4.2",
+    "version": "1.0.0",
     "description": "A typescript package template",
     "repository": "https://github.com/bkeys818/notion-api-types.git",
     "author": "Ben Keys (https://github.com/bkeys818)",
