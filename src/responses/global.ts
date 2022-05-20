@@ -1,5 +1,7 @@
 import { User } from '.'
 
+export { Color } from '../global'
+
 export interface NotionObject {
     id: string
     /** Date and time when this object was created. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO_8601) string. */
