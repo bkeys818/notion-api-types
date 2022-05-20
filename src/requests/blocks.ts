@@ -9,7 +9,7 @@ interface BlockBase {
 
 interface Text {
     /** Rich text in the block. */
-    text: NotionRequest.RichText[]
+    rich_text: NotionRequest.RichText[]
 }
 interface Caption {
     /** Caption of the block */

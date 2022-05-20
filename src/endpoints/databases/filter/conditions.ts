@@ -105,7 +105,7 @@ export interface Relation extends Empty {
 /** A formula filter condition applies to database properties of type `"formula"`. */
 export interface Formula {
     /** Only return pages where the result type of the page property formula is "text" and the provided text filter condition matches the formula's value. */
-    text: Text
+    string: Text
     /** Only return pages where the result type of the page property formula is "checkbox" and the provided checkbox filter condition matches the formula's value. */
     checkbox: Checkbox
     /** Only return pages where the result type of the page property formula is "number" and the provided number filter condition matches the formula's value. */

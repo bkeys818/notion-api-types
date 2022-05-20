@@ -23,7 +23,7 @@ interface ChildlessBase extends BlockBase {
 
 interface Text {
     /** Rich text in the block. */
-    text: NotionResponse.RichText[]
+    rich_text: NotionResponse.RichText[]
 }
 interface Caption {
     /** Caption of the block */

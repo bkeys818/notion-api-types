@@ -16,66 +16,66 @@ const childlessBase: Omit<Blocks.Bookmark, 'type' | 'bookmark'> = {
     has_children: false,
 }
 
-const text: Blocks.Heading1['heading_1']['text'] = [anyRichText]
+const rich_text: Blocks.Heading1['heading_1']['rich_text'] = [anyRichText]
 const caption: Blocks.Image['image']['caption'] = [anyRichText]
 
 const paragraph: Blocks.Paragraph = {
     ...blockBase,
-    paragraph: { text },
+    paragraph: { rich_text },
     type: 'paragraph',
 }
 
 const heading1: Blocks.Heading1 = {
     ...blockBase,
-    heading_1: { text },
+    heading_1: { rich_text },
     type: 'heading_1',
 }
 
 const heading2: Blocks.Heading2 = {
     ...blockBase,
-    heading_2: { text },
+    heading_2: { rich_text },
     type: 'heading_2',
 }
 
 const heading3: Blocks.Heading3 = {
     ...blockBase,
-    heading_3: { text },
+    heading_3: { rich_text },
     type: 'heading_3',
 }
 
 const bulletedListItem: Blocks.BulletedListItem = {
     ...blockBase,
-    bulleted_list_item: { text },
+    bulleted_list_item: { rich_text },
     type: 'bulleted_list_item',
 }
 
 const numberedListItem: Blocks.NumberedListItem = {
     ...blockBase,
-    numbered_list_item: { text },
+    numbered_list_item: { rich_text },
     type: 'numbered_list_item',
 }
 
 const toDo: Blocks.ToDo = {
     ...blockBase,
-    to_do: { checked: true, text },
+    to_do: { checked: true, rich_text },
     type: 'to_do',
 }
 
 const toggle: Blocks.Toggle = {
     ...blockBase,
-    toggle: { text },
+    toggle: { rich_text },
     type: 'toggle',
 }
 
 const code: Blocks.Code = {
     ...childlessBase,
-    code: { text, caption, language: 'typescript' },
+    code: { rich_text, caption, language: 'typescript' },
     type: 'code',
 }
 
 const bulletedListItem1: Blocks.BulletedListItem = {
     ...blockBase,
-    bulleted_list_item: { text },
+    bulleted_list_item: { rich_text },
     type: 'bulleted_list_item',
 }
 
@@ -129,13 +129,13 @@ const pdf: Blocks.Pdf = {
 
 const callout: Blocks.Callout = {
     ...blockBase,
-    callout: { icon: emoji, text },
+    callout: { icon: emoji, rich_text },
     type: 'callout',
 }
 
 const quote: Blocks.Quote = {
     ...blockBase,
-    quote: { text },
+    quote: { rich_text },
     type: 'quote',
 }
 
@@ -191,7 +191,7 @@ const syncedBlock: Blocks.SyncedBlock = {
 
 const template: Blocks.Template = {
     ...blockBase,
-    template: { text },
+    template: { rich_text },
     type: 'template',
 }
 
