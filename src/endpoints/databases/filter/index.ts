@@ -1,15 +1,19 @@
 import * as Conditions from './conditions'
 import { NotionRequest } from '../../..'
 
-type FilterValue = FilterValueFor<
+type PropertyFilter = {
+    /** The name or ID of the property to filter on. */
+    property: string
+} & FilterValueFor<
     Exclude<NotionRequest.DatabaseProperty['type'], 'rollup' | undefined>
 >
 
+type TimestampFilter =
+    | { timestamp: 'created_time'; created_time: Conditions.Date }
+    | { timestamp: 'last_edited_time'; last_edited_time: Conditions.Date }
+
 type Filter =
-    | ({
-          /** The name or ID of the property to filter on. */
-          property: string
-      } & FilterValue)
+    | (PropertyFilter | TimestampFilter)
     | { and: Filter[] }
     | { or: Filter[] }
 export default Filter
