@@ -1,14 +1,11 @@
 import type { Blocks, Block } from '../../types/responses'
 import { anyRichText, anyFile } from '.'
-import { emoji } from './global.test'
+import { notionObject, emoji } from './global.test'
 import { index, AllUnionUsed } from '../utils'
 
 const blockBase: Omit<Block, 'type'> = {
-    archived: false,
-    created_time: 'some_created_time',
+    ...notionObject,
     has_children: ([true, false] as const)[index],
-    id: 'random_block_id',
-    last_edited_time: 'some_last_edited_time',
     object: 'block',
 }
 const childlessBase: Omit<Blocks.Bookmark, 'type' | 'bookmark'> = {
