@@ -1,22 +1,13 @@
 import { NotionResponse } from '..'
-import { Emoji } from './global'
+import { NotionObject, Emoji, Color } from './global'
 
-interface BlockBase {
+interface BlockBase extends NotionObject {
     object: 'block'
-    /** Identifier for the block. */
-    id: string
     /** Type of block. */
     type: string
-    /** Date and time when this block was created. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO8601) string. */
-    created_time: string
-    /** Date and time when this block was last updated. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO8601) string. */
-    last_edited_time: string
-    /** The archived status of the block. */
-    archived: boolean
     /** Whether or not the block has children blocks nested within it. */
     has_children: boolean
 }
-
 interface ChildlessBase extends BlockBase {
     has_children: false
 }
@@ -29,41 +20,45 @@ interface Caption {
     /** Caption of the block */
     caption: NotionResponse.RichText[]
 }
+interface Colored {
+    color: Color
+}
 
 export interface Paragraph extends BlockBase {
     type: 'paragraph'
-    paragraph: Text
+    paragraph: Text & Colored
 }
 export interface Heading1 extends BlockBase {
     type: 'heading_1'
-    heading_1: Text
+    heading_1: Text & Colored
 }
 export interface Heading2 extends BlockBase {
     type: 'heading_2'
-    heading_2: Text
+    heading_2: Text & Colored
 }
 export interface Heading3 extends BlockBase {
     type: 'heading_3'
-    heading_3: Text
+    heading_3: Text & Colored
 }
 export interface BulletedListItem extends BlockBase {
     type: 'bulleted_list_item'
-    bulleted_list_item: Text
+    bulleted_list_item: Text & Colored
 }
 export interface NumberedListItem extends BlockBase {
     type: 'numbered_list_item'
-    numbered_list_item: Text
+    numbered_list_item: Text & Colored
 }
 export interface ToDo extends BlockBase {
     type: 'to_do'
-    to_do: Text & {
-        /** Whether the todo is checked or not. */
-        checked: boolean | null
-    }
+    to_do: Text &
+        Colored & {
+            /** Whether the todo is checked or not. */
+            checked: boolean | null
+        }
 }
 export interface Toggle extends BlockBase {
     type: 'toggle'
-    toggle: Text
+    toggle: Text & Colored
 }
 export interface Code extends ChildlessBase {
     type: 'code'
@@ -120,14 +115,15 @@ export interface Bookmark extends ChildlessBase {
 }
 export interface Callout extends BlockBase {
     type: 'callout'
-    callout: Text & {
-        /** Page icon. */
-        icon: Emoji | File
-    }
+    callout: Text &
+        Colored & {
+            /** Page icon. */
+            icon: Emoji | File
+        }
 }
 export interface Quote extends BlockBase {
     type: 'quote'
-    quote: Text
+    quote: Text & Colored
 }
 export interface Equation extends ChildlessBase {
     type: 'equation'
@@ -139,7 +135,7 @@ export interface Divider extends ChildlessBase {
 }
 export interface TableOfContents extends ChildlessBase {
     type: 'table_of_contents'
-    table_of_contents: Record<string, never>
+    table_of_contents: Colored
 }
 export interface Breadcrumb extends ChildlessBase {
     type: 'breadcrumb'

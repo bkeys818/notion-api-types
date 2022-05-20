@@ -1,11 +1,16 @@
 import type { Page } from '../../types/responses'
-import { anyPageProperty } from '.'
-import { notionItem } from './global.test'
+import { anyPageProperty, anyParent, files, anyFile } from '.'
+import { notionObject, emoji } from './global.test'
+import { index } from '../utils'
 
 const page: Page = {
-    ...notionItem,
+    ...notionObject,
     archived: false,
     object: 'page',
     properties: { 'property name': anyPageProperty },
+    icon: [anyFile, emoji][index],
+    cover: files.external,
+    parent: anyParent,
+    url: 'some_notion_url',
 }
 export default page

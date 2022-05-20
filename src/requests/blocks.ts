@@ -1,6 +1,6 @@
 import { NotionResponse, NotionRequest } from '..'
 import { PartialPick } from './utils'
-import { Emoji } from './global'
+import { Emoji, Color } from './global'
 
 interface BlockBase {
     /** Type of block. */
@@ -19,41 +19,45 @@ interface Children {
     /** Any nested children blocks of the block */
     children?: NotionRequest.Block[]
 }
+interface Colored {
+    color?: Color
+}
 
 export interface Paragraph extends BlockBase {
     type?: 'paragraph'
-    paragraph: Text & Children
+    paragraph: Text & Children & Colored
 }
 export interface Heading1 extends BlockBase {
     type?: 'heading_1'
-    heading_1: Text & Children
+    heading_1: Text & Children & Colored
 }
 export interface Heading2 extends BlockBase {
     type?: 'heading_2'
-    heading_2: Text & Children
+    heading_2: Text & Children & Colored
 }
 export interface Heading3 extends BlockBase {
     type?: 'heading_3'
-    heading_3: Text & Children
+    heading_3: Text & Children & Colored
 }
 export interface BulletedListItem extends BlockBase {
     type?: 'bulleted_list_item'
-    bulleted_list_item: Text & Children
+    bulleted_list_item: Text & Children & Colored
 }
 export interface NumberedListItem extends BlockBase {
     type?: 'numbered_list_item'
-    numbered_list_item: Text & Children
+    numbered_list_item: Text & Children & Colored
 }
 export interface ToDo extends BlockBase {
     type?: 'to_do'
-    to_do: Text & {
-        /** Whether the todo is checked or not. */
-        checked: boolean | null
-    } & Children
+    to_do: Text &
+        Colored & {
+            /** Whether the todo is checked or not. */
+            checked: boolean | null
+        } & Children
 }
 export interface Toggle extends BlockBase {
     type?: 'toggle'
-    toggle: Text & Children
+    toggle: Text & Children & Colored
 }
 export interface Code extends BlockBase {
     type?: 'code'
@@ -91,14 +95,15 @@ export interface Bookmark extends BlockBase {
 }
 export interface Callout extends BlockBase {
     type?: 'callout'
-    callout: Text & {
-        /** Page icon. */
-        icon?: Emoji | NotionRequest.File
-    } & Children
+    callout: Text &
+        Colored & {
+            /** Page icon. */
+            icon?: Emoji | NotionRequest.File
+        } & Children
 }
 export interface Quote extends BlockBase {
     type?: 'quote'
-    quote: Text & Children
+    quote: Text & Children & Colored
 }
 export interface Equation extends BlockBase {
     type?: 'equation'
@@ -110,7 +115,7 @@ export interface Divider extends BlockBase {
 }
 export interface TableOfContents extends BlockBase {
     type?: 'table_of_contents'
-    table_of_contents: Record<string, never>
+    table_of_contents: Colored
 }
 export interface Breadcrumb extends BlockBase {
     type?: 'breadcrumb'

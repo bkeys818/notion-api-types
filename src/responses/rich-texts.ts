@@ -1,4 +1,5 @@
 import { NotionResponse } from '..'
+import { Color } from './global'
 
 interface RichTextBase {
     /** The plain text without annotations. */
@@ -43,24 +44,5 @@ interface Annotations {
     /** Whether the text is code style. */
     code: boolean
     /** Color of the text. */
-    color:
-        | 'default'
-        | 'gray'
-        | 'brown'
-        | 'orange'
-        | 'yellow'
-        | 'green'
-        | 'blue'
-        | 'purple'
-        | 'pink'
-        | 'red'
-        | 'gray_background'
-        | 'brown_background'
-        | 'orange_background'
-        | 'yellow_background'
-        | 'green_background'
-        | 'blue_background'
-        | 'purple_background'
-        | 'pink_background'
-        | 'red_background'
+    color: Color
 }
