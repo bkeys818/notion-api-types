@@ -5,8 +5,6 @@ interface BlockBase extends NotionObject {
     object: 'block'
     /** Type of block. */
     type: string
-    /** The archived status of the block. */
-    archived: boolean
     /** Whether or not the block has children blocks nested within it. */
     has_children: boolean
 }

@@ -6,8 +6,6 @@ import { Database } from '.'
 
 export default interface Page extends NotionObject {
     object: 'page'
-    /** The archived status of the page. */
-    archived: boolean
     /**
      * Property values of this page.
      *

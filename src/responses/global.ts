@@ -1,11 +1,17 @@
-import { Parent, Files, File } from '.'
+import { User } from '.'
 
 export interface NotionObject {
     id: string
-    /** Date and time when this page was created. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO_8601) string. */
+    /** Date and time when this object was created. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO_8601) string. */
     created_time: string
-    /** Date and time when this page was updated. Formatted as an ISO 8601 date time string. */
+    /** User who created the object. */
+    created_by: Pick<User, 'object' | 'id'>
+    /** Date and time when this item object last updated. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO_8601) string. */
     last_edited_time: string
+    /** User who last edited the object. */
+    last_edited_by: Pick<User, 'object' | 'id'>
+    /** The archived status of the page. */
+    archived: boolean
 }
 
 export interface Emoji {
