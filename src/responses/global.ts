@@ -1,19 +1,11 @@
 import { Parent, Files, File } from '.'
 
-export interface NotionItem {
+export interface NotionObject {
     id: string
     /** Date and time when this page was created. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO_8601) string. */
     created_time: string
     /** Date and time when this page was updated. Formatted as an ISO 8601 date time string. */
     last_edited_time: string
-    /** Page icon. */
-    icon: File | Emoji | null
-    /** Page cover image. */
-    cover: Files.External | null
-    /** The parent of this page. */
-    parent: Parent
-    /** The URL of the Notion page. */
-    url: string
 }
 
 export interface Emoji {

@@ -1,10 +1,10 @@
-import { NotionItem } from './global'
-import { PageProperty } from '.'
+import { NotionObject, Emoji } from './global'
+import { PageProperty, Parent, Files } from '.'
 
 // @ts-expect-error Import is used in tsdoc link
 import { Database } from '.'
 
-export default interface Page extends NotionItem {
+export default interface Page extends NotionObject {
     object: 'page'
     /** The archived status of the page. */
     archived: boolean
@@ -20,4 +20,12 @@ export default interface Page extends NotionItem {
      * value object A {@link PageProperty Property value object}.
      */
     properties: { [key: string]: PageProperty }
+    /** Page icon. */
+    icon: File | Emoji | null
+    /** Page cover image. */
+    cover: Files.External | null
+    /** The parent of this page. */
+    parent: Parent
+    /** The URL of the Notion page. */
+    url: string
 }

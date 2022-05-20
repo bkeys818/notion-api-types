@@ -1,16 +1,10 @@
 import { NotionResponse } from '..'
-import { Emoji } from './global'
+import { NotionObject, Emoji } from './global'
 
-interface BlockBase {
+interface BlockBase extends NotionObject {
     object: 'block'
-    /** Identifier for the block. */
-    id: string
     /** Type of block. */
     type: string
-    /** Date and time when this block was created. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO8601) string. */
-    created_time: string
-    /** Date and time when this block was last updated. Formatted as an [ISO 8601 date time](https://en.wikipedia.org/wiki/ISO8601) string. */
-    last_edited_time: string
     /** The archived status of the block. */
     archived: boolean
     /** Whether or not the block has children blocks nested within it. */
