@@ -15,52 +15,53 @@ const childlessBase: Omit<Blocks.Bookmark, 'type' | 'bookmark'> = {
 
 const rich_text: Blocks.Heading1['heading_1']['rich_text'] = [anyRichText]
 const caption: Blocks.Image['image']['caption'] = [anyRichText]
+const color: Blocks.Heading1['heading_1']['color'] = 'default'
 
 const paragraph: Blocks.Paragraph = {
     ...blockBase,
-    paragraph: { rich_text },
+    paragraph: { rich_text, color },
     type: 'paragraph',
 }
 
 const heading1: Blocks.Heading1 = {
     ...blockBase,
-    heading_1: { rich_text },
+    heading_1: { rich_text, color },
     type: 'heading_1',
 }
 
 const heading2: Blocks.Heading2 = {
     ...blockBase,
-    heading_2: { rich_text },
+    heading_2: { rich_text, color },
     type: 'heading_2',
 }
 
 const heading3: Blocks.Heading3 = {
     ...blockBase,
-    heading_3: { rich_text },
+    heading_3: { rich_text, color },
     type: 'heading_3',
 }
 
 const bulletedListItem: Blocks.BulletedListItem = {
     ...blockBase,
-    bulleted_list_item: { rich_text },
+    bulleted_list_item: { rich_text, color },
     type: 'bulleted_list_item',
 }
 
 const numberedListItem: Blocks.NumberedListItem = {
     ...blockBase,
-    numbered_list_item: { rich_text },
+    numbered_list_item: { rich_text, color },
     type: 'numbered_list_item',
 }
 
 const toDo: Blocks.ToDo = {
     ...blockBase,
-    to_do: { checked: true, rich_text },
+    to_do: { checked: true, rich_text, color },
     type: 'to_do',
 }
 
 const toggle: Blocks.Toggle = {
     ...blockBase,
-    toggle: { rich_text },
+    toggle: { rich_text, color },
     type: 'toggle',
 }
 
@@ -72,7 +73,7 @@ const code: Blocks.Code = {
 
 const bulletedListItem1: Blocks.BulletedListItem = {
     ...blockBase,
-    bulleted_list_item: { rich_text },
+    bulleted_list_item: { rich_text, color },
     type: 'bulleted_list_item',
 }
 
@@ -126,13 +127,13 @@ const pdf: Blocks.Pdf = {
 
 const callout: Blocks.Callout = {
     ...blockBase,
-    callout: { icon: emoji, rich_text },
+    callout: { icon: emoji, rich_text, color },
     type: 'callout',
 }
 
 const quote: Blocks.Quote = {
     ...blockBase,
-    quote: { rich_text },
+    quote: { rich_text, color },
     type: 'quote',
 }
 
@@ -150,7 +151,7 @@ const divider: Blocks.Divider = {
 
 const tableOfContents: Blocks.TableOfContents = {
     ...childlessBase,
-    table_of_contents: {},
+    table_of_contents: { color },
     type: 'table_of_contents',
 }
 
