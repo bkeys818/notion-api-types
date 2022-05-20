@@ -1,5 +1,5 @@
 import { NotionObject, Emoji } from './global'
-import { Parents, RichTexts, DatabaseProperty, Files } from '.'
+import { Parents, RichTexts, DatabaseProperty, File, Files } from '.'
 
 export default interface Database extends NotionObject {
     object: 'database'

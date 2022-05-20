@@ -1,5 +1,5 @@
 import { NotionObject, Emoji } from './global'
-import { PageProperty, Parent, Files } from '.'
+import { PageProperty, Parent, File, Files } from '.'
 
 // @ts-expect-error Import is used in tsdoc link
 import { Database } from '.'
