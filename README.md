@@ -2,7 +2,8 @@
 
 > Types for the [Notion API](https://developers.notion.com)
 
-[![Version][version-image]][version-link]
+[![Notion Version][api-version-image]][api-version-link]
+[![Package Version][package-version-image]][package-version-link]
 [![Downloads Stats][npm-downloads]][npm-link]
 [![Run test][test-status]][test-link]
 
@@ -58,8 +59,10 @@ will keep the module from increase the size of your compiled javascript.
 
 <!-- Markdown link & img dfn's -->
 
-[version-image]: https://img.shields.io/github/package-json/v/bkeys818/notion-api-types/v1.0.0?label=version
-[version-link]: https://github.com/bkeys818/notion-api-types/releases/tag/v1.0.0
+[package-version-image]: https://img.shields.io/github/package-json/v/bkeys818/notion-api-types/v1.0.0?label=package%20
+[package-version-link]: https://github.com/bkeys818/notion-api-types/releases/tag/v1.0.0
+[api-version-image]: https://img.shields.io/badge/api%20version-2022--02--22-blue
+[api-version-link]: https://github.com/bkeys818/notion-api-types/tree/2020-02-22
 [npm-downloads]: https://img.shields.io/npm/dm/notion-api-types.svg
 [npm-link]: https://www.npmjs.com/package/notion-api-types/v/1.0.0
 [test-status]: https://github.com/bkeys818/notion-api-types/actions/workflows/run-tests.yaml/badge.svg?branch=v1.0.0
