@@ -5,7 +5,9 @@ import type {
     Update,
 } from '../../../types/endpoints/databases'
 import { headers } from './global.test'
-import { parents, richTexts, anyDatabaseProperty } from '../../requests'
+import { parents, files, richTexts, anyDatabaseProperty } from '../../requests'
+import { emoji } from '../../requests/global.test'
+import { index } from '../../utils'
 
 const create: Create.Request = {
     endpoint: 'databases',
@@ -14,7 +16,9 @@ const create: Create.Request = {
     params: {
         parent: parents.page,
         title: [richTexts.text],
+        icon: [files.external, emoji][index],
         properties: { 'some property name': anyDatabaseProperty },
+        is_inline: true,
     },
 }
 
