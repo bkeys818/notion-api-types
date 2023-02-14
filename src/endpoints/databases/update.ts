@@ -9,6 +9,7 @@ export interface Request extends RequestTemplate {
     method: 'PATCH'
     params?: {
         title?: [NotionRequest.RichTexts.Text]
+        description?: [NotionRequest.RichTexts.Text]
         properties?: {
             [key: string]: CreateProperty | undefined
         }

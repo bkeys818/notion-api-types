@@ -7,6 +7,7 @@ export interface Request extends RequestTemplate {
     params: {
         parent: NotionRequest.Parents.PageId
         title?: [NotionRequest.RichTexts.Text]
+        description?: [NotionRequest.RichTexts.Text]
         /** Requires a property with type `"title"` */
         properties: {
             [key: string]: NotionRequest.DatabaseProperty | undefined
