@@ -11,6 +11,8 @@ export interface Request extends RequestTemplate {
         properties: {
             [key: string]: NotionRequest.DatabaseProperty | undefined
         }
+        /** Makes the database appear as an inline block, not a child page. */
+        is_inline: boolean
     }
 }
 

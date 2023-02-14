@@ -21,4 +21,6 @@ export default interface Database extends NotionObject {
     parent: Parents.PageId | Parents.Workspace
     /** The URL of the Notion database. */
     url: string
+    /** If the database appears in the page as an inline block, not a child page. */
+    is_inline: boolean
 }
