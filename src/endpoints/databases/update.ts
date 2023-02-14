@@ -3,12 +3,16 @@ import { NotionRequest, NotionResponse } from '../../'
 import { SelectOptions as ResponseSelectOptions } from '../../responses/properties/global'
 import { SelectOptions } from '../../requests/properties/global'
 import { Resolve } from '../../utils'
+import { Emoji } from '../../requests/global'
 
 export interface Request extends RequestTemplate {
     endpoint: `databases/${string}`
     method: 'PATCH'
     params?: {
         title?: [NotionRequest.RichTexts.Text]
+        description?: [NotionRequest.RichTexts.Text]
+        icon?: Emoji | NotionRequest.Files.External
+        cover?: NotionRequest.Files.External
         properties?: {
             [key: string]: CreateProperty | undefined
         }
