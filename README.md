@@ -1,3 +1,9 @@
+# ⚠️ Please use [notion-sdk-js](https://github.com/makenotion/notion-sdk-js/tree/main) instead
+
+From v0.4, the notion-sdk-js endpoints have been fully typed.
+
+Due to this, this repository is no longer maintained.
+
 # Notion API Types
 
 > Types for the [Notion API](https://developers.notion.com)
